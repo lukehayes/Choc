@@ -1,4 +1,4 @@
-import Choc.World;
+import choc.World;
 
 
 class Main extends hxd.App {
@@ -11,7 +11,7 @@ class Main extends hxd.App {
     override function init() {
         g = new h2d.Graphics(s2d);
         o = new h2d.Object();
-        world = World.new();
+        world = new World();
 
     }
 

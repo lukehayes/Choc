@@ -1,4 +1,4 @@
-package Choc.System;
+package Choc.system;
 
 /**
   Base class for all systems.

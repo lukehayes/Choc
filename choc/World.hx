@@ -1,6 +1,6 @@
-package Choc;
+package choc;
 
-import Choc.System;
+//import choc.system;
 
 /**
   This class is the main class that controls the ECS.
@@ -9,6 +9,6 @@ class World
 {
     var systems = [];
 
-    function new(){}
+    public function new(){}
 }
 
