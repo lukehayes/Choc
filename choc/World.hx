@@ -7,8 +7,16 @@ package choc;
 **/
 class World
 {
-    var systems = [];
+    public var systems = [];
 
     public function new(){}
+
+    public function update(dt: Float)
+    {
+        for(system in systems)
+        {
+            system.update(dt);
+        }
+    }
 }
 
