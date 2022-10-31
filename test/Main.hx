@@ -1,3 +1,4 @@
+package test;
 import choc.World;
 import choc.system.System;
 

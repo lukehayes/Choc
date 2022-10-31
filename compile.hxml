@@ -2,4 +2,4 @@
 -lib heaps
 -lib hlsdl
 -hl app.hl
--main Main
+-main "test/Main.hx"
