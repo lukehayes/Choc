@@ -71,4 +71,5 @@ tags
 [._]*.un~
 
 *.hl
+bin/
 # End of https://www.toptal.com/developers/gitignore/api/vim,linux,c++
