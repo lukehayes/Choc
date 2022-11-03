@@ -1,5 +1,0 @@
--cp choc
--lib heaps
--lib hlsdl
--hl bin/app.hl
--main "test/Main.hx"
