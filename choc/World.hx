@@ -1,14 +1,32 @@
 package choc;
 
 import choc.system.System;
+import choc.entity.Entity;
 
 /**
   This class is the main class that controls the ECS.
 **/
 class World
 {
+    /**
+      All of systems used inside the world.
+    **/
     public var systems:Array<System> = [];
+
+    /**
+      All of entites used inside the world.
+    **/
+    public var entities:Array<Entity> = [];
+
+    /**
+      The total number of systems defined in the world.
+    **/
     public var systemCount:Int = 0;
+
+    /**
+      The total number of entities in the world.
+    **/
+    public var entityCount:Int = 0;
 
     public function new(){}
 
@@ -20,11 +38,30 @@ class World
         }
     }
 
+    /**
+      Add a system to the world.
+
+      @param position
+
+      @param system
+    **/
     public function addSystem(position:Int, system:System)
     {
         this.systems.insert(position, system);
         this.systemCount++;
-        trace("Adding element");
+    }
+
+    /**
+      Add a entity to the world.
+
+      @param position
+
+      @param entity
+    **/
+    public function addEntity(position:Int, entity:Entity)
+    {
+        this.entities.insert(position, entity);
+        this.entityCount++;
     }
 }
 
