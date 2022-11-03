@@ -16,7 +16,9 @@ class Main extends hxd.App {
     override function init() {
         g = new h2d.Graphics(s2d);
         o = new h2d.Object();
-        world = new World();
+        world = World.instance;
+
+        trace(world);
         drawSystem  = new DrawSystem("Draw", g);
 
         world.addSystem(0, drawSystem);
@@ -26,8 +28,6 @@ class Main extends hxd.App {
         entity.addComponent("Transform", tComp);
 
         world.addEntity(0, entity);
-
-
     }
 
     override function update(dt:Float) 

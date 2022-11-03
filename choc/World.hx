@@ -8,6 +8,8 @@ import choc.entity.Entity;
 **/
 class World
 {
+    public static final instance : World = new World();
+
     /**
       All of systems used inside the world.
     **/
@@ -28,7 +30,7 @@ class World
     **/
     public var entityCount:Int = 0;
 
-    public function new(){}
+    private function new(){}
 
     public function update(dt: Float)
     {
