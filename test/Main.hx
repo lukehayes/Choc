@@ -1,6 +1,8 @@
 package test;
 import choc.World;
 import choc.system.DrawSystem;
+import test.TestEntity;
+import test.TransformComponent;
 
 class Main extends hxd.App {
 
@@ -9,6 +11,7 @@ class Main extends hxd.App {
     var c : Float = 0.0;
     var world : World;
     var drawSystem : DrawSystem;
+    var entity : TestEntity;
 
     override function init() {
         g = new h2d.Graphics(s2d);
@@ -17,6 +20,14 @@ class Main extends hxd.App {
         drawSystem  = new DrawSystem("Draw", g);
 
         world.addSystem(0, drawSystem);
+
+        entity = new TestEntity();
+        var tComp = new TransformComponent(200,250);
+        entity.addComponent("Transform", tComp);
+
+        world.addEntity(0, entity);
+
+
     }
 
     override function update(dt:Float) 
