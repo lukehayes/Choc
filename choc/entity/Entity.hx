@@ -1,5 +1,6 @@
 package choc.entity;
 
+import choc.component.Component;
 /**
   Base class for all entities.
 **/
