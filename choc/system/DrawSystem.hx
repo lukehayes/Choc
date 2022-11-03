@@ -1,24 +1,25 @@
 package choc.system;
 
 import choc.component.Component;
+import choc.system.System;
 
-class DrawSystem
+class DrawSystem extends System
 {
-    public var name : String;
+    private var g : h2d.Graphics;
 
-    public function new(name)
+    public function new(name, g : h2d.Graphics)
     {
-        this.name = name;
+        super(name);
+        this.g = g;
     }
 
-    public function toString()
-    {
-        return this.name + " System";
-    }
-
-    public function update(dt: Float)
+    override public function update(dt: Float)
     {
         trace("Updating " + this);
         trace("Delta  " + dt);
+
+        g.beginFill(0x00ff00);
+        g.drawRect(100, 110, 330, 200);
+        g.endFill();
     }
 }
