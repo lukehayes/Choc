@@ -16,9 +16,4 @@ class Component
     {
         return this.name + " Component";
     }
-
-    public function update(dt: Float)
-    {
-        trace("Updating " + this);
-    }
 }
