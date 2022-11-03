@@ -9,15 +9,15 @@ class Main extends hxd.App {
     var g : h2d.Graphics;
     var c : Float = 0.0;
     var world : World;
-    var system : DrawSystem;
+    var drawSystem : DrawSystem;
 
     override function init() {
         g = new h2d.Graphics(s2d);
         o = new h2d.Object();
         world = new World();
-        system  = new DrawSystem("Draw");
+        drawSystem  = new DrawSystem("Draw", g);
 
-        world.addSystem(0, system);
+        world.addSystem(0, drawSystem);
     }
 
     override function update(dt:Float) 
