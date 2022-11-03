@@ -2,7 +2,6 @@ package test;
 import choc.World;
 import choc.system.DrawSystem;
 
-
 class Main extends hxd.App {
 
     var o : h2d.Object;
@@ -22,6 +21,7 @@ class Main extends hxd.App {
 
     override function update(dt:Float) 
     {
+        world.update(dt);
         //trace(system);
         //g.x = Math.cos(c) * 10 * dt;
         //g.y = Math.sin(c) * 10 * dt;
