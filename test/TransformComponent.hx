@@ -7,11 +7,11 @@ import choc.component.Component;
 **/
 class TransformComponent extends Component
 {
-    public var x : Int;
-    public var y : Int;
+    public var x : Float;
+    public var y : Float;
 
 
-    public function new(x:Int, y:Int)
+    public function new(x:Float, y:Float)
     {
         super("Transform");
 
