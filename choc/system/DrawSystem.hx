@@ -21,16 +21,17 @@ class DrawSystem extends System
         trace("Updating " + this);
         trace("Delta  " + dt);
 
+        g.clear();
+        g.beginFill(0x00ff00);
         for(entity in World.instance.entities)
         {
-            g.beginFill(0x00ff00);
             if(entity.hasComponent("Transform"))
             {
                 var t = cast(entity.getComponent("Transform"), TransformComponent);
                 t.x += 0.1 * 100 *  dt;
                 g.drawRect(t.x, t.y, 10,10 );
             };
-            g.endFill();
         }
+       g.endFill();
     }
 }
