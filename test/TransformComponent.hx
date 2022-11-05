@@ -7,15 +7,26 @@ import choc.component.Component;
 **/
 class TransformComponent extends Component
 {
-    public var x : Float;
-    public var y : Float;
+    public var x      : Float;
+    public var y      : Float;
+    public var dx     : Float;
+    public var dy     : Float;
+    public var speed : Float;
 
 
-    public function new(x:Float, y:Float)
+    public function new(
+            x:Float,
+            y:Float,
+            dx:Float,
+            dy:Float,
+            speed : Float = 100)
     {
         super("Transform");
 
         this.x = x;
         this.y = y;
+        this.dx = dx;
+        this.dy = dy;
+        this.speed = speed;
     }
 }

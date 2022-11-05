@@ -28,7 +28,8 @@ class DrawSystem extends System
             if(entity.hasComponent("Transform"))
             {
                 var t = cast(entity.getComponent("Transform"), TransformComponent);
-                t.x += 0.1 * 100 *  dt;
+                t.x += t.dx * t.speed * dt;
+                t.y += t.dy * t.speed * dt;
                 g.drawRect(t.x, t.y, 10,10 );
             };
         }
