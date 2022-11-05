@@ -24,18 +24,21 @@ class Main extends hxd.App {
 
         world.addSystem(0, drawSystem);
 
-        var e1 = new TestEntity();
-        var t1 = new TransformComponent(200,250);
-        e1.addComponent("Transform", t1);
+        for(i in 1...10)
+        {
+            var rng = new hxd.Rand(i);
+            var rx = (rng.random(1) - 1) + 2;
+            var ry = (rng.random(1) - 1) + 2;
+
+            trace("----");
+            trace((rng.random(2)-3) + 1);
 
 
-        var e2 = new TestEntity();
-        var t2 = new TransformComponent(300,250);
-        e2.addComponent("Transform", t2);
-
-
-        world.addEntity(0, e1);
-        world.addEntity(1, e2);
+            var e = new TestEntity();
+            var t = new TransformComponent(200,250, rx, ry,rng.rand() * 300);
+            e.addComponent("Transform", t);
+            world.addEntity(i, e);
+        }
     }
 
     override function update(dt:Float) 
