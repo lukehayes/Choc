@@ -20,23 +20,20 @@ class Main extends hxd.App {
         o = new h2d.Object();
         world = World.instance;
 
-        trace(world);
         drawSystem  = new DrawSystem("Draw", g);
 
         world.addSystem(0, drawSystem);
 
         for(i in 1...10)
         {
-            var rng = new hxd.Rand(i);
-            var rx = (rng.random(1) - 1) + 2;
-            var ry = (rng.random(1) - 1) + 2;
-
-            trace("----");
-            trace((rng.random(2)-3) + 1);
-
+            var rx = Random.int(0,400);
+            var ry = Random.int(0,400);
+            var rdx = Random.int(-1,1);
+            var rdy = Random.int(-1,1);
 
             var e = new TestEntity();
-            var t = new TransformComponent(200,250, rx, ry,rng.rand() * 300);
+            var t = new TransformComponent(rx, ry, rdx, rdy, Random.int(50,200));
+
             e.addComponent("Transform", t);
             world.addEntity(i, e);
         }
