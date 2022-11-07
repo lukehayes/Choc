@@ -28,8 +28,22 @@ class DrawSystem extends System
             if(entity.hasComponent("Transform"))
             {
                 var t = cast(entity.getComponent("Transform"), TransformComponent);
+
                 t.x += t.dx * t.speed * dt;
                 t.y += t.dy * t.speed * dt;
+
+                // Simple collision detection.
+                if(t.x < 0 || t.x > 600)
+                {
+                    t.dx = -t.dx;
+                }
+
+                if(t.y < 0 || t.y > 600)
+                {
+                    t.dy = -t.dx;
+                }
+
+
                 g.drawRect(t.x, t.y, 10,10 );
             };
         }
