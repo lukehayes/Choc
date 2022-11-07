@@ -4,6 +4,7 @@ import choc.World;
 import choc.system.DrawSystem;
 import test.TestEntity;
 import test.TransformComponent;
+import Random;
 
 class Main extends hxd.App {
 
