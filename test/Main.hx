@@ -32,9 +32,10 @@ class Main extends hxd.App {
             var rdy = Random.int(-1,1);
 
             var e = new TestEntity();
-            var t = new TransformComponent(rx, ry, rdx, rdy, Random.int(50,200));
 
-            e.addComponent("Transform", t);
+            e.addComponent("Transform", 
+                new TransformComponent(rx, ry, rdx, rdy, Random.int(50,200))
+            );
             world.addEntity(i, e);
         }
     }
