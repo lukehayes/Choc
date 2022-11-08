@@ -1,4 +1,4 @@
-package test;
+package choc.component.std;
 
 import choc.component.Component;
 

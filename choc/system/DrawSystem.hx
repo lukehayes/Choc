@@ -1,7 +1,7 @@
 package choc.system;
 
 import choc.component.Component;
-import test.TransformComponent;
+import choc.component.std.TransformComponent;
 import choc.system.System;
 
 import choc.World;
@@ -39,7 +39,6 @@ class DrawSystem extends System
                 {
                     t.dy = -t.dx;
                 }
-
 
                 g.drawRect(t.x, t.y, 10,10 );
             };

@@ -2,8 +2,8 @@ package test;
 
 import choc.World;
 import choc.system.DrawSystem;
+import choc.component.std.TransformComponent;
 import test.TestEntity;
-import test.TransformComponent;
 import Random;
 
 class Main extends hxd.App {
@@ -34,7 +34,7 @@ class Main extends hxd.App {
             var e = new TestEntity();
 
             e.addComponent("Transform", 
-                new TransformComponent(rx, ry, rdx, rdy, Random.int(50,200))
+                new TransformComponent(rx, ry, rdx, rdy, Random.int(150,400))
             );
             world.addEntity(i, e);
         }
@@ -43,15 +43,6 @@ class Main extends hxd.App {
     override function update(dt:Float) 
     {
         world.update(dt);
-        //trace(system);
-        //g.x = Math.cos(c) * 10 * dt;
-        //g.y = Math.sin(c) * 10 * dt;
-        //c += 0.1;
-
-        //g.beginFill(0x00ff00);
-        //g.drawRect(100, 110, 330, 200);
-        //g.endFill();
-        //system.update(dt);
     }
 
     static function main() {
