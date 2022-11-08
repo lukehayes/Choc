@@ -3,7 +3,7 @@ package choc.component.std;
 import choc.component.Component;
 
 /**
-  Base class for all components.
+  Transform component containts information like position.
 **/
 class TransformComponent extends Component
 {
