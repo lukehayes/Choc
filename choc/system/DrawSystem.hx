@@ -18,9 +18,6 @@ class DrawSystem extends System
 
     override public function update(dt: Float)
     {
-        trace("Updating " + this);
-        trace("Delta  " + dt);
-
         g.clear();
         g.beginFill(0x00ff00);
         for(entity in World.instance.entities)

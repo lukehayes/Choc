@@ -21,7 +21,5 @@ class System
 
     public function update(dt: Float)
     {
-        trace("Updating " + this);
-        trace("Delta  " + dt);
     }
 }
