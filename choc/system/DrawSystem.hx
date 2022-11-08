@@ -2,6 +2,7 @@ package choc.system;
 
 import choc.component.Component;
 import choc.component.std.TransformComponent;
+import choc.component.std.ColorComponent;
 import choc.system.System;
 
 import choc.World;
@@ -19,11 +20,12 @@ class DrawSystem extends System
     override public function update(dt: Float)
     {
         g.clear();
-        g.beginFill(0x00ff00);
         for(entity in World.instance.entities)
         {
             if(entity.hasComponent("Transform"))
             {
+                var c = cast(entity.getComponent("Color"), ColorComponent);
+                g.beginFill(c.random());
                 var t = cast(entity.getComponent("Transform"), TransformComponent);
 
                 t.x += t.dx * t.speed * dt;
@@ -41,8 +43,8 @@ class DrawSystem extends System
                 }
 
                 g.drawRect(t.x, t.y, 10,10 );
+                g.endFill();
             };
         }
-       g.endFill();
     }
 }

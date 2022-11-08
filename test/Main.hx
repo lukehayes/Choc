@@ -3,6 +3,7 @@ package test;
 import choc.World;
 import choc.system.DrawSystem;
 import choc.component.std.TransformComponent;
+import choc.component.std.ColorComponent;
 import test.TestEntity;
 import Random;
 
@@ -20,6 +21,7 @@ class Main extends hxd.App {
         o = new h2d.Object();
         world = World.instance;
 
+
         drawSystem  = new DrawSystem("Draw", g);
 
         world.addSystem(0, drawSystem);
@@ -35,6 +37,10 @@ class Main extends hxd.App {
 
             e.addComponent("Transform", 
                 new TransformComponent(rx, ry, rdx, rdy, Random.int(150,400))
+            );
+
+            e.addComponent("Color", 
+                new ColorComponent(0xAAAAAA)
             );
             world.addEntity(i, e);
         }
