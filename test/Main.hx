@@ -13,7 +13,6 @@ class Main extends hxd.App {
     var g : h2d.Graphics;
     var world : World;
     var drawSystem : DrawSystem;
-    var entity : TestEntity;
 
     override function init() {
         g = new h2d.Graphics(s2d);
