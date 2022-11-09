@@ -4,16 +4,13 @@ import choc.component.Component;
 import Random;
 
 /**
-  Color component contains RGB hex value,
-  helpful for rendering simple things.
+  Color component contains RGB hex value,helpful for rendering simple things.
 **/
 class ColorComponent extends Component
 {
     public var color : Int;
 
-    public function new(
-            color:Int = 0xFF00FF
-    )
+    public function new(color:Int = 0xFF00FF)
     {
         super("Color");
         this.color = color;
@@ -21,6 +18,8 @@ class ColorComponent extends Component
 
     /**
       Generate a random color value.
+
+      @return A randomized color value.
      **/
     public function random() : Int
     {
