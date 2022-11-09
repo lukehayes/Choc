@@ -17,7 +17,7 @@ class DrawSystem extends System
         this.g = g;
     }
 
-    override public function update(dt: Float)
+    public function update(dt: Float)
     {
         g.clear();
         for(entity in World.instance.entities)
