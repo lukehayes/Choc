@@ -2,6 +2,7 @@ package test;
 
 import choc.World;
 import choc.system.DrawSystem;
+import choc.system.MovementSystem;
 import choc.component.std.TransformComponent;
 import choc.component.std.ColorComponent;
 import test.TestEntity;
@@ -12,16 +13,18 @@ class Main extends hxd.App {
 
     var g : h2d.Graphics;
     var world : World;
-    var drawSystem : DrawSystem;
 
     override function init() {
         g = new h2d.Graphics(s2d);
         world = World.instance;
 
-        drawSystem  = new DrawSystem("Draw", g);
-        world.addSystem(0, drawSystem);
+        var drawSystem  = new DrawSystem("Draw", g);
+        var moveSystem = new MovementSystem();
 
-        EntityFactory.generate(100);
+        world.addSystem(0, drawSystem);
+        world.addSystem(1, moveSystem);
+
+        EntityFactory.generate(10);
     }
 
     override function update(dt:Float) 
