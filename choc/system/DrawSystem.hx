@@ -25,7 +25,7 @@ class DrawSystem extends System
             if(entity.hasComponent("Transform"))
             {
                 var c = cast(entity.getComponent("Color"), ColorComponent);
-                g.beginFill(c.random());
+                g.beginFill(c.color);
                 var t = cast(entity.getComponent("Transform"), TransformComponent);
 
                 t.x += t.dx * t.speed * dt;

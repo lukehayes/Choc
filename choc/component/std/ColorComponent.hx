@@ -32,6 +32,8 @@ class ColorComponent extends Component
             color += Random.fromArray(values);
         }
 
-        return Std.parseInt(color);
+        this.color = Std.parseInt(color);
+
+        return this.color;
     }
 }

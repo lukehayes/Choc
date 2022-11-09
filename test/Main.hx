@@ -34,14 +34,15 @@ class Main extends hxd.App {
             var rdy = Random.int(-1,1);
 
             var e = new TestEntity();
+            var c = new ColorComponent(0xAAAAAA);
+            c.random();
 
             e.addComponent("Transform", 
                 new TransformComponent(rx, ry, rdx, rdy, Random.int(150,400))
             );
 
-            e.addComponent("Color", 
-                new ColorComponent(0xAAAAAA)
-            );
+            e.addComponent("Color", c);
+
             world.addEntity(i, e);
         }
     }
