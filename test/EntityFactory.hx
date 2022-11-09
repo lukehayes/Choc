@@ -22,22 +22,24 @@ class EntityFactory
 
         for(i in 1...count)
         {
-            var rx = Random.int(0,400);
-            var ry = Random.int(0,400);
+            var rx  = Random.int(0,400);
+            var ry  = Random.int(0,400);
             var rdx = Random.int(-1,1);
             var rdy = Random.int(-1,1);
 
             var e = new TestEntity();
+
+            e.addComponent("Transform",
+                new TransformComponent(rx, ry, rdx, rdy, 10,10, Random.int(150,400))
+            );
+
             var c = new ColorComponent(0xAAAAAA);
             c.random();
 
-            e.addComponent("Transform", 
-                new TransformComponent(rx, ry, rdx, rdy, Random.int(150,400))
-            );
-
             e.addComponent("Color", c);
-
             world.addEntity(i, e);
         }
+
+        trace("Generating " + count + " entities.");
     }
 }

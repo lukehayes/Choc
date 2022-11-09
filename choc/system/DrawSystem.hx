@@ -42,7 +42,7 @@ class DrawSystem extends System
                     t.dy = -t.dx;
                 }
 
-                g.drawRect(t.x, t.y, 10,10 );
+                g.drawRect(t.x, t.y, t.w,t.h);
                 g.endFill();
             };
         }
