@@ -5,6 +5,7 @@ import choc.system.DrawSystem;
 import choc.component.std.TransformComponent;
 import choc.component.std.ColorComponent;
 import test.TestEntity;
+import test.EntityFactory;
 import Random;
 
 class Main extends hxd.App {
@@ -21,30 +22,11 @@ class Main extends hxd.App {
         o = new h2d.Object();
         world = World.instance;
 
-
         drawSystem  = new DrawSystem("Draw", g);
-
         world.addSystem(0, drawSystem);
 
-        for(i in 1...10)
-        {
-            var rx = Random.int(0,400);
-            var ry = Random.int(0,400);
-            var rdx = Random.int(-1,1);
-            var rdy = Random.int(-1,1);
+        EntityFactory.generate(100);
 
-            var e = new TestEntity();
-            var c = new ColorComponent(0xAAAAAA);
-            c.random();
-
-            e.addComponent("Transform", 
-                new TransformComponent(rx, ry, rdx, rdy, Random.int(150,400))
-            );
-
-            e.addComponent("Color", c);
-
-            world.addEntity(i, e);
-        }
     }
 
     override function update(dt:Float) 
