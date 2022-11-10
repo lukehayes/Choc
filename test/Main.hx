@@ -21,8 +21,8 @@ class Main extends hxd.App {
         var drawSystem  = new DrawSystem(g);
         var moveSystem = new MovementSystem();
 
-        world.addSystem(0, drawSystem);
-        world.addSystem(1, moveSystem);
+        world.addSystem(drawSystem);
+        world.addSystem(moveSystem);
 
         EntityFactory.generate(10);
     }

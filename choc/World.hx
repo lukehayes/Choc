@@ -54,26 +54,22 @@ class World
     /**
       Add a system to the world.
 
-      @param index
-
       @param system
     **/
-    public function addSystem(index:Int, system:System)
+    public function addSystem(system:System)
     {
-        this.systems.insert(index, system);
+        this.systems.push(system);
         this.systemCount++;
     }
 
     /**
       Add a entity to the world.
 
-      @param index
-
       @param entity
     **/
-    public function addEntity(index:Int, entity:Entity)
+    public function addEntity(entity:Entity)
     {
-        this.entities.insert(index, entity);
+        this.entities.push(entity);
         this.entityCount++;
     }
 }
