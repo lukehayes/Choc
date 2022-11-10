@@ -11,9 +11,9 @@ class DrawSystem extends System
 {
     private var g : h2d.Graphics;
 
-    public function new(name, g : h2d.Graphics)
+    public function new(g : h2d.Graphics)
     {
-        super(name);
+        super("Draw");
         this.g = g;
     }
 
@@ -26,6 +26,7 @@ class DrawSystem extends System
             {
                 var t = cast(entity.getComponent("Transform"), TransformComponent);
                 var c = cast(entity.getComponent("Color"), ColorComponent);
+
                 g.beginFill(c.color);
                     g.drawRect(t.x, t.y, t.w,t.h);
                 g.endFill();

@@ -18,7 +18,7 @@ class Main extends hxd.App {
         g = new h2d.Graphics(s2d);
         world = World.instance;
 
-        var drawSystem  = new DrawSystem("Draw", g);
+        var drawSystem  = new DrawSystem(g);
         var moveSystem = new MovementSystem();
 
         world.addSystem(0, drawSystem);
