@@ -8,6 +8,9 @@ import choc.entity.Entity;
 **/
 class World
 {
+    /**
+      Singleton instance of the World object.
+    **/
     public static final instance : World = new World();
 
     /**
@@ -30,8 +33,16 @@ class World
     **/
     public var entityCount:Int = 0;
 
+    /**
+      World should be used as a singleton, so constructor is private.
+    **/
     private function new(){}
 
+    /**
+      Iterate over every system available to the World instance.
+
+      This in turn will iterate over every entity inside each system.
+    **/
     public function update(dt: Float)
     {
         for(system in systems)

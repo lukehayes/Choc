@@ -3,12 +3,19 @@ package choc.system;
 import choc.component.Component;
 
 /**
-  Base class for all systems.
+  Base class for all systems. 
+
+  Class is abstract and should subclasses should inherit the update() method.
 **/
 abstract class System
 {
     public var name : String;
 
+    /**
+      Constructor.
+
+      @param name    The name of the system.
+    **/
     public function new(name)
     {
         this.name = name;

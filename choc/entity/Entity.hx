@@ -9,6 +9,9 @@ class Entity
 {
     public var components : Map<String, Component>;
 
+    /**
+      Constructor.
+    **/
     public function new(){
         this.components = new Map<String, Component>();
     }
