@@ -5,6 +5,8 @@ A very small ECS library designed specifically to work with the
 
 __This project is very much a work in progress so will change a lot but if you use it or have tips, let me know!__
 
+---
+
 ### Usage
 
 #### World
