@@ -84,3 +84,49 @@ world.addSystem(exampleSystem);
 
 Once the system has been added to the instance of ```World``` then it will be updated
 automatically when ```world.update())``` is called.
+
+#### Components
+
+All components should inherit from ```choc.component.Component``` and they are almost
+exclusively only meant to hold data. A specific system will update and transform
+that data at another time.
+
+```haxe
+package myComponent;
+
+import choc.component.Component;
+
+class ExampleComponent extends Component
+{
+    public function new()
+    {
+        super("ExampleComponent");
+    }
+}
+
+```
+
+Just like children of ```choc.system.System```, children of ```choc.component.Component```
+should also pass in a string into it's super constructor so that the ```choc.World``` 
+instance can identify it internally.
+
+Any properties that are appropriate can then be added to it:
+
+```haxe
+package myComponent;
+
+import choc.component.Component;
+
+class ExampleComponent extends Component
+{
+    var foo:Int;
+
+    public function new(bar:Int)
+    {
+        super("ExampleComponent");
+
+        this.foo = bar;
+    }
+}
+
+```
