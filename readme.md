@@ -15,14 +15,14 @@ available throughout a project.
 
 It can be accessed like this:
 
-```
+```haxe
 import choc.World;
 var world = World.instance;
 ```
 
 Systems and entities should be added to this instance:
 
-```
+```haxe
 import choc.World;
 import choc.system.ExampleSystem;
 
@@ -35,8 +35,7 @@ world.addSystem(moveSystem);
 
 Then in your main loop, the update method on the World instance should be called:
 
-```
-// Main Loop:
+```haxe
 function update(dt:Float)
 {
     world.update(dt);
