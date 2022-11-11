@@ -130,3 +130,41 @@ class ExampleComponent extends Component
 }
 
 ```
+
+#### Entities
+
+All entities should inherit from ```choc.entity.Entity```. The super construct
+must also be called.
+
+```haxe
+package entity;
+
+import choc.entity.Entity;
+
+class ExampleEntity extends Entity
+{
+    public function new()
+    {
+        super();
+    }
+}
+
+```
+
+Components that you have created can then be added to the entity:
+
+```haxe
+
+var entity = new TestEntity();
+
+var exampleComponent = new ExampleComponent(1,2,3);
+entity.addComponent("ExampleComponent", exampleComponent);
+```
+
+They should then be added to the ```World``` instance:
+
+```haxe
+import choc.World;
+var world = World.instance;
+world.addEntity(exampleComponent);
+```
