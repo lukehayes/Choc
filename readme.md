@@ -10,6 +10,7 @@ __This project is very much a work in progress so will change a lot but if you u
 #### World
 
 The main class that manages the Choc and all of its systems is ```choc.World```
+
 ```World``` is defined as a singleton object and has been designed to be
 available throughout a project.
 
