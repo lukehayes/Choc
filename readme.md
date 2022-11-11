@@ -44,3 +44,43 @@ function update(dt:Float)
 }
 
 ```
+
+#### System
+
+All systems should inherit from the abstract base class choc.system.System;
+
+```haxe
+package myGame;
+
+import choc.system.System;
+
+class ExampleSystem extends System
+{
+    public function new()
+    {
+        // The name of the class should be based to its parent.
+        super("Example");
+    }
+}
+
+```
+
+In the above example, the name of the system should be passed to the parent class.
+
+The name that you pass into the super constructor is the name that is attached
+the instance that is stored inside the ```map<System>``` member of the World class.
+
+A system can be added to the instance of ```World``` like this:
+
+```haxe
+import choc.World;
+import myGame.ExampleSystem;
+
+var world = World.instance;
+var exampleSystem = new ExampleSystem();
+
+world.addSystem(exampleSystem);
+```
+
+Once the system has been added to the instance of ```World``` then it will be updated
+automatically when ```world.update())``` is called.
