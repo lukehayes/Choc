@@ -3,7 +3,7 @@
 A very small ECS library designed specifically to work with the
 [Heaps Framework](https://www.heaps.io).
 
-__This project is very much a work in progress so will change a lot but if you use it or have tips, let me know!__
+__This project is very much a work in progress so will change a lot but pull requests are welcome__
 
 ---
 
@@ -106,7 +106,7 @@ class ExampleComponent extends Component
 
 ```
 
-Just like children of ```choc.system.System```, children of ```choc.component.Component```
+Just like children of ```choc.system.System``` , children of ```choc.component.Component``` 
 should also pass in a string into it's super constructor so that the ```choc.World``` 
 instance can identify it internally.
 
@@ -154,7 +154,6 @@ class ExampleEntity extends Entity
 Components that you have created can then be added to the entity:
 
 ```haxe
-
 var entity = new TestEntity();
 
 var exampleComponent = new ExampleComponent(1,2,3);
