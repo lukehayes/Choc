@@ -5,7 +5,7 @@
   "tags": ["ECS", "Entity Component System", "Haxe"],
   "description": "A small ECS library for use with the Heaps.io framework",
   "version": "0.0.2-alpha",
-  "classPath": "choc/",
+  "classPath": "src/",
   "releasenote": "Initial release, just to get started.",
   "contributors": ["Luke"],
   "dependencies": {
