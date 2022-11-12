@@ -1,4 +1,4 @@
-package choc;
+package;
 
 import choc.system.System;
 import choc.entity.Entity;
