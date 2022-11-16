@@ -1,4 +1,4 @@
--cp choc
+-cp src/
 -lib heaps
 -lib hlsdl
 -lib random

@@ -39,7 +39,7 @@ class EntityFactory
             c.random();
 
             e.addComponent("Color", c);
-            world.addEntity(e);
+            world.addEntity(i, e);
         }
 
         trace("Generating " + count + " entities.");

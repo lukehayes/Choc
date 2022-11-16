@@ -36,7 +36,11 @@ class World
     /**
       World should be used as a singleton, so constructor is private.
     **/
-    private function new(){}
+    private function new()
+    {
+        //this.systems  = new Array<System>();
+        //this.entities = new Array<Entity>();
+    }
 
     /**
       Iterate over every system available to the World instance.
@@ -54,11 +58,12 @@ class World
     /**
       Add a system to the world.
 
+      @param index
       @param system
     **/
-    public function addSystem(system:System)
+    public function addSystem(index:Int, system:System)
     {
-        this.systems.push(system);
+        this.systems.insert(index, system);
         this.systemCount++;
     }
 
@@ -67,9 +72,9 @@ class World
 
       @param entity
     **/
-    public function addEntity(entity:Entity)
+    public function addEntity(index:Int, entity:Entity)
     {
-        this.entities.push(entity);
+        this.entities.insert(index, entity);
         this.entityCount++;
     }
 }
