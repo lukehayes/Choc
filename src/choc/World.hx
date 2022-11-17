@@ -16,12 +16,12 @@ class World
     /**
       All of systems used inside the world.
     **/
-    public var systems:Array<System> = [];
+    public var systems:Map<Int, System>;
 
     /**
       All of entites used inside the world.
     **/
-    public var entities:Array<Entity> = [];
+    public var entities:Map<Int, Entity>;
 
     /**
       The total number of systems defined in the world.
@@ -38,8 +38,8 @@ class World
     **/
     private function new()
     {
-        //this.systems  = new Array<System>();
-        //this.entities = new Array<Entity>();
+        this.systems  = new Map<Int,System>();
+        this.entities = new Map<Int,Entity>();
     }
 
     /**
@@ -58,13 +58,11 @@ class World
     /**
       Add a system to the world.
 
-      @param index
       @param system
     **/
     public function addSystem(index:Int, system:System)
     {
-        this.systems.insert(index, system);
-        this.systemCount++;
+        this.systems[index] = system;
     }
 
     /**
@@ -74,8 +72,7 @@ class World
     **/
     public function addEntity(index:Int, entity:Entity)
     {
-        this.entities.insert(index, entity);
-        this.entityCount++;
+        this.entities[index] = entity;
     }
 }
 
