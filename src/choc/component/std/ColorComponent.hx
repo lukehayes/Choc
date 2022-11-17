@@ -23,7 +23,7 @@ class ColorComponent extends Component
      **/
     public function random() : Int
     {
-        var values = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+        var values = "0123456789abcdef".split("");
         var color = "0x";
 
         for(i in 0...6)
