@@ -7,13 +7,22 @@ import choc.component.Component;
 **/
 class Entity
 {
+    /**
+      All of the components defined for this entity.
+    **/
     public var components : Map<String, Component>;
+
+    /**
+      The id(integer) of the entity.
+    **/
+    public var id : Int;
 
     /**
       Constructor.
     **/
-    public function new(){
+    public function new(id:Int) {
         this.components = new Map<String, Component>();
+        this.id = id;
     }
 
     /**
