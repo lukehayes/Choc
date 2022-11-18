@@ -9,6 +9,9 @@ import choc.component.Component;
 **/
 abstract class System
 {
+    /**
+      The name of the system.
+    **/
     public var name : String;
 
     /**
