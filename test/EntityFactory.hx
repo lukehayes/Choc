@@ -29,7 +29,7 @@ class EntityFactory
             var rdx = Random.int(-1,1);
             var rdy = Random.int(-1,1);
 
-            var e = new TestEntity();
+            var e = new TestEntity(i);
 
             e.addComponent("Transform",
                 new TransformComponent(rx, ry, rdx, rdy, rw,rh, Random.int(150,400))

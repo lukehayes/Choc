@@ -7,7 +7,7 @@ import choc.entity.Entity;
 **/
 class TestEntity extends Entity
 {
-    public function new(){
-        super();
+    public function new(id:Int){
+        super(id);
     }
 }

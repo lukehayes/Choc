@@ -21,8 +21,8 @@ class Entity
       Constructor.
     **/
     public function new(id:Int) {
-        this.components = new Map<String, Component>();
         this.id = id;
+        this.components = new Map<String, Component>();
     }
 
     /**
