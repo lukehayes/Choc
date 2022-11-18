@@ -79,12 +79,12 @@ import myGame.ExampleSystem;
 var world = World.instance;
 var exampleSystem = new ExampleSystem();
 
-world.addSystem(1, exampleSystem);
+world.addSystem(exampleSystem);
 ```
-To add a system to the World instance an instance of system as well as an index position in the
-map needs to be passed in as an argument.
+To add a system to the World, call the `world.addSystem()` method passing an instance of
+the system to be added.
 
-Once the system has been added to the instance of ```World``` then it will be updated
+Once the system has been added to the ```World```, it will be updated
 automatically when ```world.update())``` is called.
 
 #### Components

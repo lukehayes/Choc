@@ -16,7 +16,7 @@ class World
     /**
       All of systems used inside the world.
     **/
-    public var systems:Map<Int, System>;
+    public var systems:Map<String, System>;
 
     /**
       All of entites used inside the world.
@@ -38,7 +38,7 @@ class World
     **/
     private function new()
     {
-        this.systems  = new Map<Int,System>();
+        this.systems  = new Map<String,System>();
         this.entities = new Map<Int,Entity>();
     }
 
@@ -60,9 +60,9 @@ class World
 
       @param system
     **/
-    public function addSystem(index:Int, system:System)
+    public function addSystem(system:System)
     {
-        this.systems[index] = system;
+        this.systems[system.name] = system;
     }
 
     /**
