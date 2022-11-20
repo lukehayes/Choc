@@ -56,6 +56,30 @@ class World
     }
 
     /**
+      Remove a system from the world.
+
+      @param name    The name of the system.
+
+      @return Bool
+    **/
+    public function removeSystem(name:String) : Bool
+    {
+        return this.systems.remove(name);
+    }
+
+    /**
+      Remove a entity from the world.
+
+      @param name    The name of the system.
+
+      @return Bool
+    **/
+    public function removeEntity(index:Int) : Bool
+    {
+        return this.entities.remove(index);
+    }
+
+    /**
       Add a system to the world.
 
       @param system

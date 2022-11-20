@@ -1,4 +1,5 @@
-# Choc
+. The index should be an integer
+representing the location in the Map that stores it.# Choc
 
 A very small ECS library designed specifically to work with the
 [Heaps Framework](https://www.heaps.io).
@@ -43,6 +44,29 @@ function update(dt:Float)
     world.update(dt);
 }
 
+```
+
+##### Remove an entity
+
+To remove an entity, pass the index into world.removeEntity(). The index should be an Integer type
+representing the location in the Map that stores it.
+
+```haxe
+var world = World.instance;
+
+world.removeEntity(index);
+```
+##### Remove an system
+
+To remove a system, pass the index into world.removeSystem(). The index should be an String type
+representing the location in the Map that stores it.
+
+The index of the system is passed into is constructor during initialization.
+
+```haxe
+var world = World.instance;
+
+world.removeSystem(index);
 ```
 
 #### System
@@ -168,4 +192,15 @@ They should then be added to the ```World``` instance:
 import choc.World;
 var world = World.instance;
 world.addEntity(exampleComponent);
+```
+
+##### Remove an entity
+
+To remove an entity, pass the index into world.removeEntity(). The index should be an integer
+representing the location in the Map that stores it.
+
+```haxe
+var world = World.instance;
+
+world.removeEntity(index);
 ```
