@@ -36,6 +36,12 @@ Entities are classes that should hold component classes. Those component classes
 functionality to the entity.
 
 
+## Installation
+
+This project depends on the Haxe programming language being installed. After which, run:
+`haxelib install choc` to get the latest version.
+
+
 ## Usage
 
 #### World
