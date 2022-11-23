@@ -9,7 +9,7 @@ __This project is very much a work in progress so will change a lot but pull req
 ---
 
 
-### Overview
+## Overview
 
 The main types in Choc are: World, Systems, Components and Entities.
 
@@ -36,7 +36,7 @@ Entities are classes that should hold component classes. Those component classes
 functionality to the entity.
 
 
-### Usage
+## Usage
 
 #### World
 
