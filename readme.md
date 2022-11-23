@@ -8,6 +8,34 @@ __This project is very much a work in progress so will change a lot but pull req
 
 ---
 
+
+### Overview
+
+The main types in Choc are: World, Systems, Components and Entities.
+
+#### World
+
+The `World` type represents a global class that manages all of the systems, entities and components.
+It defines a single `update()` method that will update all of it's subsystems sequentially.
+
+#### System
+
+A system should manage components with a specific or multiple specific components. If an entity defines
+comonents that meet that systems requirements then that entity will be updated. If not, then it will
+be ignored.
+
+#### Component
+
+A component is a simple class that holds data. Properties should be defined in a component that are 
+related to the job that it needs to do. The component should be added to the entity for it to be
+updated in a system.
+
+#### Entities
+
+Entities are classes that should hold component classes. Those component classes give specific
+functionality to the entity.
+
+
 ### Usage
 
 #### World
