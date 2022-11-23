@@ -24,6 +24,18 @@ abstract class System
         this.name = name;
     }
 
+    public function requires(...args)
+    {
+        // TODO Implement some kind of filtering for the systems
+
+        //var requirements : Array<String>= [];
+        //for(arg in args)
+        //{
+            //requirements += arg;
+        //}
+        //return requirements;
+    }
+
     /**
       Get the name of the system. Concatenates the name of the child system
       with the string "System".
