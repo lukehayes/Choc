@@ -14,23 +14,26 @@ class DrawSystem extends System
     public function new(g : h2d.Graphics)
     {
         super("Draw");
+
         this.g = g;
+        this.requires("Color");
     }
 
     public function update(dt: Float)
     {
-        g.clear();
-        for(entity in World.instance.entities)
-        {
-            if(entity.hasComponent("Transform"))
-            {
-                var t = cast(entity.getComponent("Transform"), TransformComponent);
-                var c = cast(entity.getComponent("Color"), ColorComponent);
+        this.filterEntities();
 
-                g.beginFill(c.color);
-                    g.drawRect(t.x, t.y, t.w,t.h);
-                g.endFill();
-            };
+        g.clear();
+        for(entity in this.filteredEntities)
+        {
+            var t = cast(entity.getComponent("Transform"), TransformComponent);
+            var c = cast(entity.getComponent("Color"), ColorComponent);
+
+            g.beginFill(c.color);
+                g.drawRect(t.x, t.y, t.w,t.h);
+            g.endFill();
         }
+
+        this.filteredEntities = [];
     }
 }

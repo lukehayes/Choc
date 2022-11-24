@@ -20,7 +20,7 @@ class EntityFactory
     {
         var world  = World.instance;
 
-        for(i in 1...count)
+        for(i in 0...count - 1)
         {
             var rx  = Random.int(0,400);
             var ry  = Random.int(0,400);
@@ -35,13 +35,14 @@ class EntityFactory
                 new TransformComponent(rx, ry, rdx, rdy, rw,rh, Random.int(150,400))
             );
 
-            var c = new ColorComponent(0xAAAAAA);
-            c.random();
+            if(i % 2 == 0)
+            {
+                var c = new ColorComponent(0xAAAAAA);
+                e.addComponent("Color", c);
+            }
 
-            e.addComponent("Color", c);
             world.addEntity(i,e);
         }
 
-        trace("Generating " + count + " entities.");
     }
 }
