@@ -118,9 +118,9 @@ class ExampleSystem extends System
     {
         // The name of the class should be based to its parent.
         super("Example");
+        this.requires("ComponentA", "ComponentB");
     }
 }
-
 ```
 
 In the above example, the name of the system should be passed to the parent class.
@@ -144,6 +144,28 @@ the system to be added.
 
 Once the system has been added to the ```World```, it will be updated
 automatically when ```world.update())``` is called.
+
+##### Filtering components in systems'
+```haxe
+package myGame;
+
+import choc.system.System;
+
+class ExampleSystem extends System
+{
+    public function new()
+    {
+        // The name of the class should be based to its parent.
+        super("Example");
+        this.requires("ComponentA", "ComponentB");
+    }
+}
+```
+
+Systems can filter entities based on a set of specific components. Calling
+`this.requires("List", "Of", "Components")` with a string of component
+names will make sure only the entities with the defined components
+will be updated.
 
 #### Components
 
