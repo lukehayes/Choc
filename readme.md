@@ -13,24 +13,24 @@ __This project is very much a work in progress so will change a lot but pull req
 
 The main types in Choc are: World, Systems, Components and Entities.
 
-#### World
+### World
 
 The `World` type represents a global class that manages all of the systems, entities and components.
 It defines a single `update()` method that will update all of it's subsystems sequentially.
 
-#### System
+### System
 
 A system should manage components with a specific or multiple specific components. If an entity defines
 comonents that meet that systems requirements then that entity will be updated. If not, then it will
 be ignored.
 
-#### Component
+### Component
 
 A component is a simple class that holds data. Properties should be defined in a component that are 
 related to the job that it needs to do. The component should be added to the entity for it to be
 updated in a system.
 
-#### Entities
+### Entities
 
 Entities are classes that should hold component classes. Those component classes give specific
 functionality to the entity.
@@ -118,6 +118,9 @@ class ExampleSystem extends System
     {
         // The name of the class should be based to its parent.
         super("Example");
+
+        // List of required components an entity should have
+        // for the system to update it.
         this.requires("ComponentA", "ComponentB");
     }
 }
@@ -142,8 +145,8 @@ world.addSystem(exampleSystem);
 To add a system to the World, call the `world.addSystem()` method passing an instance of
 the system to be added.
 
-Once the system has been added to the ```World```, it will be updated
-automatically when ```world.update())``` is called.
+Once the system has been added to the `World`, it will be updated
+utomatically when `world.update())` is called.
 
 ##### Filtering components in systems'
 ```haxe
@@ -188,8 +191,8 @@ class ExampleComponent extends Component
 
 ```
 
-Just like children of ```choc.system.System``` , children of ```choc.component.Component``` 
-should also pass in a string into it's super constructor so that the ```choc.World``` 
+Just like children of `choc.system.System` , children of `choc.component.Component` 
+should also pass in a string into it's super constructor so that the `choc.World`
 instance can identify it internally.
 
 Any properties that are appropriate can then be added to it:
@@ -215,7 +218,7 @@ class ExampleComponent extends Component
 
 #### Entities
 
-All entities should inherit from ```choc.entity.Entity```. The super construct
+All entities should inherit from `choc.entity.Entity`. The super constructor
 must also be called.
 
 ```haxe
@@ -242,7 +245,7 @@ var exampleComponent = new ExampleComponent(1,2,3);
 entity.addComponent("ExampleComponent", exampleComponent);
 ```
 
-They should then be added to the ```World``` instance:
+They should then be added to the `World` instance:
 
 ```haxe
 import choc.World;
