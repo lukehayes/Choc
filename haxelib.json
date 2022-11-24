@@ -6,7 +6,7 @@
   "description": "A small ECS library for use with the Heaps.io framework",
   "version": "0.1",
   "classPath": "src/",
-  "releasenote": "Initial release, just to get started.",
+  "releasenote": "Systems can now filter entities based on required components",
   "contributors": ["Luke"],
   "dependencies": {
     "random": ""
