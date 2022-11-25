@@ -16,7 +16,7 @@ class DrawSystem extends System
         super("Draw");
 
         this.g = g;
-        this.requires("Color");
+        this.requires("Transform", "Color");
     }
 
     public function update(dt: Float)
