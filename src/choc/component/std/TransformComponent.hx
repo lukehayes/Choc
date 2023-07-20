@@ -14,16 +14,19 @@ class TransformComponent extends Component
     public var dx     : Float;
     public var dy     : Float;
     public var speed : Float;
+    public var color : Int;
 
 
     public function new(
-            x:Float,
-            y:Float,
-            dx:Float,
-            dy:Float,
+            x:Float = 1,
+            y:Float = 1,
+            dx:Float = 1,
+            dy:Float = 1,
             w:Float = 10,
             h:Float = 10,
-            speed : Float = 100)
+            speed : Float = 100,
+            color : Int = 0xFF00FFFF
+            )
     {
         super("Transform");
 
