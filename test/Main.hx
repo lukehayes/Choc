@@ -1,35 +1,56 @@
 package test;
 
 import choc.World;
+
 import choc.system.DrawSystem;
 import choc.system.MovementSystem;
-import choc.component.std.TransformComponent;
+
+import choc.component.Component;
 import choc.component.std.ColorComponent;
-import test.TestEntity;
-import test.EntityFactory;
+import choc.component.std.TransformComponent;
+
 import Random;
 
 class Main extends hxd.App {
 
-    var g : h2d.Graphics;
-    var world : World;
+    var entities : Map<Int, Array<Component>> = [];
 
-    override function init() {
-        g = new h2d.Graphics(s2d);
-        world = World.instance;
+    var drawSystem : DrawSystem;
 
-        var drawSystem  = new DrawSystem(g);
-        var moveSystem = new MovementSystem();
+    override function init() 
+    {
+        // TODO Implement working draw system
+        var n = 100;
+        for(i in 0...10)
+        {
+            var rx = Random.float(0,n);
+            var ry = Random.float(0,n);
+            var dx = Random.float(0,1);
+            var dy = Random.float(0,1);
 
-        //world.addSystem(drawSystem);
-        world.addSystem(moveSystem);
+            var components : Array<Component> = [];
 
-        EntityFactory.generate(10);
+            for(c in 0...10)
+            {
+                components[c] = null;
+            }
+
+            this.entities[i] = [];
+
+            var tc = new TransformComponent(rx,ry,rx,dy);
+            components.push(tc);
+
+            this.entities[i] = components;
+            
+        }
+
+
+        this.drawSystem = new DrawSystem(this.entities);
     }
 
     override function update(dt:Float) 
     {
-        world.update(dt);
+        this.drawSystem.update(dt);
     }
 
     static function main() {

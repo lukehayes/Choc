@@ -10,30 +10,28 @@ import choc.World;
 class DrawSystem extends System
 {
     private var g : h2d.Graphics;
+    private var entities : Map<Int, Array<Component>>;
 
-    public function new(g : h2d.Graphics)
+    public function new(ents : Map<Int, Array<Component>>)
     {
         super("Draw");
-
-        this.g = g;
-        this.requires("Transform", "Color");
+        this.g = new h2d.Graphics();
+        this.entities = ents;
     }
 
     public function update(dt: Float)
     {
-        this.filterEntities();
+        this.g.clear();
 
-        g.clear();
-        for(entity in this.filteredEntities)
+        for(i in 0...10)
         {
-            var t = cast(entity.getComponent("Transform"), TransformComponent);
-            var c = cast(entity.getComponent("Color"), ColorComponent);
+            var t = this.entities[i].component[0];
 
-            g.beginFill(c.color);
-                g.drawRect(t.x, t.y, t.w,t.h);
-            g.endFill();
+            this.g.beginFill(c.color);
+                this.g.drawRect(t.x, t.y, t.w,t.h);
+            this.g.endFill();
+
         }
 
-        this.filteredEntities = [];
     }
 }
