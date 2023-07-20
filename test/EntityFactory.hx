@@ -5,6 +5,8 @@ import choc.component.std.TransformComponent;
 import choc.component.std.ColorComponent;
 import Random;
 
+typedef EntityMap = Array<Array<Component>>;
+
 class EntityFactory
 {
     public function new(){}

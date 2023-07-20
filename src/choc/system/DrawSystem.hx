@@ -10,9 +10,9 @@ import choc.World;
 class DrawSystem extends System
 {
     private var g : h2d.Graphics;
-    private var entities : Map<Int, Array<Component>>;
+    private var entities : EntityMap;
 
-    public function new(ents : Map<Int, Array<Component>>)
+    public function new(ents : EntityMap)
     {
         super("Draw");
         this.g = new h2d.Graphics();
