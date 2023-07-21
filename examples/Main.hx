@@ -2,7 +2,6 @@ package examples;
 
 import choc.World;
 import choc.system.DrawSystem;
-import choc.system.MovementSystem;
 import choc.component.std.TransformComponent;
 import choc.component.std.ColorComponent;
 import test.TestEntity;
@@ -19,7 +18,6 @@ class Main extends hxd.App {
         world = World.instance;
 
         var drawSystem  = new DrawSystem(g);
-        var moveSystem = new MovementSystem();
 
         world.addSystem(drawSystem);
         world.addSystem(moveSystem);

@@ -3,7 +3,6 @@ package test;
 import choc.World;
 
 import choc.system.DrawSystem;
-import choc.system.MovementSystem;
 
 import choc.component.Component;
 import choc.component.std.ColorComponent;
