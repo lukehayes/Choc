@@ -11,4 +11,7 @@ class Global
 
     public static final
         ENTITY_COUNT = 10;
+
+    public static final
+        COMPONENT_COUNT = 4;
 }
