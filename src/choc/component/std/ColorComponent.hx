@@ -12,7 +12,8 @@ class ColorComponent extends Component
 
     public function new(color:Int = 0xFF00FF)
     {
-        super("Color");
+        super();
+        this.name = "Color";
         this.color = color;
     }
 

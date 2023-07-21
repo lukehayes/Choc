@@ -13,8 +13,8 @@ class TransformComponent extends Component
     public var h      : Float;
     public var dx     : Float;
     public var dy     : Float;
-    public var speed : Float;
-    public var color : Int;
+    public var speed  : Float;
+    public var color  : Int;
 
 
     public function new(
@@ -28,7 +28,8 @@ class TransformComponent extends Component
             color : Int = 0xFF00FFFF
             )
     {
-        super("Transform");
+        super();
+        this.name = "Transform";
 
         this.x = x;
         this.y = y;
