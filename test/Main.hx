@@ -1,6 +1,7 @@
 package test;
 
 import choc.World;
+import choc.Global;
 
 import choc.system.DrawSystem;
 
@@ -10,41 +11,30 @@ import choc.component.std.TransformComponent;
 
 import Random;
 
+typedef Entities = Array<Array<Component>>;
+
 class Main extends hxd.App {
 
-    var entities : Map<Int, Array<Component>> = [];
+    var entities : Entities = new Array();
 
     var drawSystem : DrawSystem;
 
     override function init() 
     {
-        // TODO Implement working draw system
-        var n = 100;
-        for(i in 0...10)
+        for(i in 0...Global.ENTITY_COUNT - 1)
         {
-            var rx = Random.float(0,n);
-            var ry = Random.float(0,n);
-            var dx = Random.float(0,1);
-            var dy = Random.float(0,1);
+            var components = new Array<Component>();
 
-            var components : Array<Component> = [];
-
-            for(c in 0...10)
+            for(j in 0...Global.COMPONENT_COUNT - 1)
             {
-                components[c] = null;
+                components[i] = null;
+                trace(j);
             }
 
-            this.entities[i] = [];
+            components[Global.TRANSFORM_COMPONENT_INDEX] = new TransformComponent();
 
-            var tc = new TransformComponent(rx,ry,rx,dy);
-            components.push(tc);
-
-            this.entities[i] = components;
-            
+            this.entities.push(components);
         }
-
-
-        this.drawSystem = new DrawSystem(this.entities);
     }
 
     override function update(dt:Float) 
