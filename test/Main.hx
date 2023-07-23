@@ -21,20 +21,20 @@ class Main extends hxd.App {
 
     override function init() 
     {
-        for(i in 0...Global.ENTITY_COUNT - 1)
+        for(i in 0...Global.ENTITY_COUNT)
         {
             var components = new Array<Component>();
 
-            for(j in 0...Global.COMPONENT_COUNT - 1)
-            {
-                components[i] = null;
-                trace(j);
-            }
+            var rx = Random.int(0,400);
+            var ry = Random.int(0,400);
 
-            components[Global.TRANSFORM_COMPONENT_INDEX] = new TransformComponent();
+            components[Global.TRANSFORM_COMPONENT_INDEX] = new TransformComponent(rx,ry);
+            components[Global.SPRITE_COMPONENT_INDEX] = null;
 
-            this.entities.push(components);
+            this.entities[i] = components;
         }
+
+        this.drawSystem = new DrawSystem(entities);
     }
 
     override function update(dt:Float) 
