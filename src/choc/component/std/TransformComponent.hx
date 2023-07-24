@@ -31,13 +31,14 @@ class TransformComponent extends Component
         super();
         this.name = "Transform";
 
-        this.x = x;
-        this.y = y;
+        this.x  = x;
+        this.y  = y;
+        this.w  = w;
+        this.h  = h;
+        this.speed = speed;
         this.dx = dx;
         this.dy = dy;
-        this.w = w;
-        this.h = h;
-        this.speed = speed;
+        this.color = color;
     }
 
     override public function toString()
