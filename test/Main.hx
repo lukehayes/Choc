@@ -35,7 +35,7 @@ class Main extends hxd.App {
             this.entities[i] = components;
         }
 
-        this.drawSystem = new DrawSystem(entities);
+        this.drawSystem = new DrawSystem(entities, s2d);
     }
 
     override function update(dt:Float) 

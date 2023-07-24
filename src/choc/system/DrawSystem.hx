@@ -16,10 +16,10 @@ class DrawSystem extends System
 
     private var entities = null;
 
-    public function new(ents : Entities)
+    public function new(ents : Entities, scene: h2d.Scene )
     {
         super("Draw");
-        this.g = new h2d.Graphics();
+        this.g = new h2d.Graphics(scene);
 
         this.entities = ents;
     }
@@ -33,15 +33,18 @@ class DrawSystem extends System
 
         for(e in this.entities)
         {
-            var tc = e[Global.TRANSFORM_COMPONENT_INDEX];
-            if(Std.isOfType(tc, TransformComponent)){
+            var tc = cast(e[Global.TRANSFORM_COMPONENT_INDEX], TransformComponent);
+
+            if(Std.isOfType(tc, TransformComponent))
+            {
+
             this.g.beginFill(tc.color);
-            this.g.drawRect(
+                this.g.drawRect(
                     tc.x,
                     tc.y,
                     tc.w,
                     tc.h
-            );
+                );
             this.g.endFill();
             }
 
