@@ -27,8 +27,9 @@ class Main extends hxd.App {
 
             var rx = Random.int(0,400);
             var ry = Random.int(0,400);
+            var rs = Random.int(2,10);
 
-            components[Global.TRANSFORM_COMPONENT_INDEX] = new TransformComponent(rx,ry);
+            components[Global.TRANSFORM_COMPONENT_INDEX] = new TransformComponent(rx, ry, rs);
             components[Global.SPRITE_COMPONENT_INDEX] = null;
 
             this.entities[i] = components;
