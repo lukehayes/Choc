@@ -1,0 +1,7 @@
+-cp src/
+-lib heaps
+-lib hlsdl
+-lib random
+-hl bin/app.hl
+-main "test/Main.hx"
+-D no-deprecation-warnings
