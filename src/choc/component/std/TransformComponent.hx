@@ -20,11 +20,11 @@ class TransformComponent extends Component
     public function new(
             x:Float  = 1,
             y:Float  = 1,
-            dx:Float = 1,
-            dy:Float = 1,
             w:Float  = 10,
             h:Float  = 10,
             speed : Float = 100,
+            dx:Float = 1,
+            dy:Float = 1,
             color : Int = 0xFF00FFFF
             )
     {
