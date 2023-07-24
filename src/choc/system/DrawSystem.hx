@@ -28,16 +28,25 @@ class DrawSystem extends System
     {
 
         this.g.clear();
-        trace(this.entities.length);
+
+        var entityCount = Global.ENTITY_COUNT;
+
         for(e in this.entities)
         {
-            trace(e);
-            var transform_comp = cast(e[Global.TRANSFORM_COMPONENT_INDEX], TransformComponent);
-
-            this.g.beginFill(0xFF00FF);
-            this.g.drawRect(10,10,10,10);
+            var tc = e[Global.TRANSFORM_COMPONENT_INDEX];
+            if(Std.isOfType(tc, TransformComponent)){
+            this.g.beginFill(tc.color);
+            this.g.drawRect(
+                    tc.x,
+                    tc.y,
+                    tc.w,
+                    tc.h
+            );
             this.g.endFill();
+            }
+
         }
+
 
     }
 }
