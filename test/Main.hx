@@ -1,12 +1,10 @@
 package test;
 
-import choc.World;
 import choc.Global;
 
 import choc.system.DrawSystem;
 
 import choc.component.Component;
-import choc.component.std.ColorComponent;
 import choc.component.std.TransformComponent;
 
 import Random;
