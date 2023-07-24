@@ -25,7 +25,7 @@ class TransformComponent extends Component
             speed : Float = 100,
             dx:Float = 1,
             dy:Float = 1,
-            color : Int = 0xFF00FFFF
+            color : Int = 0xFF00FF
             )
     {
         super();
