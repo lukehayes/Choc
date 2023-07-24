@@ -39,4 +39,16 @@ class TransformComponent extends Component
         this.h = h;
         this.speed = speed;
     }
+
+    override public function toString()
+    {
+        var s = "Transform Component { ";
+        s+= this.x + ",";
+        s+= this.y + ",";
+        s+= this.w + ",";
+        s+= this.h + " }";
+
+        return s;
+    }
+
 }
