@@ -2,6 +2,7 @@ package choc;
 
 import choc.system.System;
 import choc.entity.Entity;
+import choc.Global;
 
 /**
   This class is the main class that controls the ECS.
@@ -39,7 +40,7 @@ class World
     private function new()
     {
         this.systems  = new Map<String,System>();
-        this.entities = new Map<Int,Entity>();
+        this.entities = [];
     }
 
     /**
@@ -93,6 +94,7 @@ class World
     public function addSystem(system:System)
     {
         this.systems[system.name] = system;
+        this.systemCount++;
     }
 
     /**
