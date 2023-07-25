@@ -21,7 +21,7 @@ class World
     /**
       All of entites used inside the world.
     **/
-    public var entities:Map<Int, Entity>;
+    public var entities:Array<Array<choc.component.Component>>;
 
     /**
       The total number of systems defined in the world.
@@ -64,7 +64,13 @@ class World
     **/
     public function removeSystem(name:String) : Bool
     {
-        return this.systems.remove(name);
+        if(this.systems.exists(name))
+        {
+            this.systemCount--;
+            return this.systems.remove(name);
+        }else {
+            return false;
+        }
     }
 
     /**
