@@ -83,7 +83,11 @@ class World
     **/
     public function removeEntity(index:Int) : Bool
     {
-        return this.entities.remove(index);
+        /**
+        * TODO Need to work out a better architecture.
+        * Implement this later when I have done that.
+        */
+        return false;
     }
 
     /**
@@ -104,7 +108,7 @@ class World
     **/
     public function addEntity(index:Int, entity:Entity)
     {
-        this.entities[index] = entity;
+        // TODO See World.removeEntity().
     }
 }
 
