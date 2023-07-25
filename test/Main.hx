@@ -1,44 +1,30 @@
 package test;
 
+import choc.World;
 import choc.Global;
 
 import choc.system.DrawSystem;
 
-import choc.component.Component;
 import choc.component.std.TransformComponent;
 
 import Random;
 
-typedef Entities = Array<Array<Component>>;
-
 class Main extends hxd.App {
-
-    var entities : Entities = new Array();
-
-    var drawSystem : DrawSystem;
 
     override function init() 
     {
-        for(i in 0...Global.ENTITY_COUNT)
-        {
-            var components = new Array<Component>();
-
-            var rx = Random.int(0,400);
-            var ry = Random.int(0,400);
-            var rs = Random.int(2,10);
-
-            components[Global.TRANSFORM_COMPONENT_INDEX] = new TransformComponent(rx, ry, rs);
-            components[Global.SPRITE_COMPONENT_INDEX] = null;
-
-            this.entities[i] = components;
-        }
-
-        this.drawSystem = new DrawSystem(entities, s2d);
+        /**
+        TODO Refactor this into a useable API so that it can be
+             used outsied of this project.
+        */
+        World.instance.addSystem(
+            new DrawSystem(EntityFactory.generateEntities(), s2d)
+        );
     }
 
     override function update(dt:Float) 
     {
-        this.drawSystem.update(dt);
+        World.instance.update(dt);
     }
 
     static function main() {

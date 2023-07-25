@@ -1,13 +1,49 @@
 package test;
 
 import choc.World;
+import choc.Global;
+
+import choc.component.Component;
 import choc.component.std.TransformComponent;
 import choc.component.std.ColorComponent;
+
 import Random;
+
+typedef Entities = Array<Array<Component>>;
 
 class EntityFactory
 {
     public function new(){}
+
+
+    /**
+      Generate N amount of entities for testing.
+
+      @param count    The number of entities to add to the world.
+
+      @return Array<Array<Component>>;
+     **/
+    static public function generateEntities() : Entities
+    {
+        var entities = [];
+
+        for(i in 0...Global.ENTITY_COUNT)
+        {
+            var components = new Array<Component>();
+
+            var rx = Random.int(0,400);
+            var ry = Random.int(0,400);
+            var rs = Random.int(2,10);
+
+            components[Global.TRANSFORM_COMPONENT_INDEX] = new TransformComponent(rx, ry, rs, rs);
+            components[Global.SPRITE_COMPONENT_INDEX] = null;
+
+            entities[i] = components;
+        }
+
+        return entities;
+    }
+
 
     /**
       Generate N amount of entities for testing.
@@ -20,7 +56,7 @@ class EntityFactory
     {
         var world  = World.instance;
 
-        for(i in 0...count - 1)
+        for(i in 0...Global.ENTITY_COUNT - 1)
         {
             var rx  = Random.int(0,400);
             var ry  = Random.int(0,400);
