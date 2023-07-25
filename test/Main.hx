@@ -17,8 +17,11 @@ class Main extends hxd.App {
         TODO Refactor this into a useable API so that it can be
              used outsied of this project.
         */
+
+        World.instance.entities = EntityFactory.generateEntities();
+
         World.instance.addSystem(
-            new DrawSystem(EntityFactory.generateEntities(), s2d)
+            new DrawSystem(World.instance.entities, s2d)
         );
     }
 
