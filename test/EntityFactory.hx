@@ -5,7 +5,6 @@ import choc.Global;
 
 import choc.component.Component;
 import choc.component.std.TransformComponent;
-import choc.component.std.ColorComponent;
 
 import Random;
 
@@ -70,12 +69,6 @@ class EntityFactory
             e.addComponent("Transform",
                 new TransformComponent(rx, ry, rdx, rdy, rw,rh, Random.int(150,400))
             );
-
-            if(i % 2 == 0)
-            {
-                var c = new ColorComponent(0xAAAAAA);
-                e.addComponent("Color", c);
-            }
 
             world.addEntity(i,e);
         }
