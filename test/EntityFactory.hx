@@ -12,9 +12,6 @@ typedef Entities = Array<Array<Component>>;
 
 class EntityFactory
 {
-    public function new(){}
-
-
     /**
       Generate N amount of entities for testing.
 
