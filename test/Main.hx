@@ -7,6 +7,8 @@ import choc.system.RenderSystem;
 
 import choc.component.std.TransformComponent;
 
+import choc.Typedefs;
+
 import Random;
 
 class Main extends hxd.App {
