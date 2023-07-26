@@ -30,11 +30,14 @@ class EntityFactory
         {
             var components = new Array<Component>();
 
-            var rx = Random.int(0,400);
-            var ry = Random.int(0,400);
-            var rs = Random.int(2,10);
+            var rx  = Random.int(0,400);
+            var ry  = Random.int(0,400);
+            var rsz = Random.int(2,10);
+            var rsp = Random.int(2,30);
+            var rdx = Random.int(-1,1);
+            var rdy = Random.int(-1,1);
 
-            components[Global.TRANSFORM_COMPONENT_INDEX] = new TransformComponent(rx, ry, rs, rs);
+            components[Global.TRANSFORM_COMPONENT_INDEX] = new TransformComponent(rx, ry, rsz, rsz, rsp, rdx, rdy);
             components[Global.SPRITE_COMPONENT_INDEX] = null;
 
             entities[i] = components;
