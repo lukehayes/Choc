@@ -4,7 +4,9 @@ import choc.World;
 import choc.Global;
 
 import choc.system.RenderSystem;
+import choc.system.MoveSystem;
 
+import choc.component.Component;
 import choc.component.std.TransformComponent;
 
 import choc.Typedefs;
@@ -25,6 +27,11 @@ class Main extends hxd.App {
         World.instance.addSystem(
             "Render",
             new RenderSystem(World.instance.entities, s2d)
+        );
+
+        World.instance.addSystem(
+            "Move",
+            new MoveSystem(World.instance.entities)
         );
     }
 
