@@ -9,7 +9,7 @@ import choc.World;
 
 typedef Entities = Array<Array<Component>>;
 
-class DrawSystem extends System
+class RenderSystem extends System
 {
     private var g : h2d.Graphics;
 

@@ -3,7 +3,7 @@ package test;
 import choc.World;
 import choc.Global;
 
-import choc.system.DrawSystem;
+import choc.system.RenderSystem;
 
 import choc.component.std.TransformComponent;
 
@@ -21,7 +21,8 @@ class Main extends hxd.App {
         World.instance.entities = EntityFactory.generateEntities();
 
         World.instance.addSystem(
-            new DrawSystem(World.instance.entities, s2d)
+            "Render",
+            new RenderSystem(World.instance.entities, s2d)
         );
     }
 
