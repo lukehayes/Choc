@@ -17,9 +17,8 @@ class DrawSystem extends System
 
     public function new(ents : Entities, scene: h2d.Scene )
     {
-        super("Draw");
+        super();
         this.g = new h2d.Graphics(scene);
-
         this.entities = ents;
     }
 

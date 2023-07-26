@@ -93,11 +93,15 @@ class World
     /**
       Add a system to the world.
 
+      @param name    The name of the system.
+
+      @param system  Instance of the system to add.
+
       @param system
     **/
-    public function addSystem(system:System)
+    public function addSystem(name:String, system:System)
     {
-        this.systems[system.name] = system;
+        this.systems[name] = system;
         this.systemCount++;
     }
 

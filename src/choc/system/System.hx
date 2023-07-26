@@ -7,17 +7,11 @@ package choc.system;
 **/
 abstract class System
 {
-    /** The name of the system. **/
-    public var name : String;
-
     /**
       Constructor.
-
-      @param name    The name of the system.
     **/
-    public function new(name)
+    public function new()
     {
-        this.name = name;
     }
 
     /**
@@ -28,7 +22,7 @@ abstract class System
      **/
     public function toString() : String
     {
-        return this.name + " System";
+        return "Base System";
     }
 
     /**
