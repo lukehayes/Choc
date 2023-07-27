@@ -37,7 +37,7 @@ class EntityFactory
             var chance = Random.int(0,10);
 
             components[Global.TRANSFORM_COMPONENT_INDEX] = new TransformComponent(rx, ry, rsz, rsz, rsp, rdx, rdy);
-            components[Global.SPRITE_COMPONENT_INDEX] = chance % 2 == 0 ? new SpriteComponent('hxlogo_png',20,20) : null;
+            components[Global.SPRITE_COMPONENT_INDEX] = chance % 2 == 0 ? new SpriteComponent('debug.png',20,20) : null;
 
             entities[i] = components;
         }
