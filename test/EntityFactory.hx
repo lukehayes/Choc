@@ -6,6 +6,7 @@ import choc.Typedefs;
 
 import choc.component.Component;
 import choc.component.std.TransformComponent;
+import choc.component.std.SpriteComponent;
 
 import Random;
 
@@ -33,8 +34,10 @@ class EntityFactory
             var rdx = Random.int(-1,1);
             var rdy = Random.int(-1,1);
 
+            var chance = Random.int(0,10);
+
             components[Global.TRANSFORM_COMPONENT_INDEX] = new TransformComponent(rx, ry, rsz, rsz, rsp, rdx, rdy);
-            components[Global.SPRITE_COMPONENT_INDEX] = null;
+            components[Global.SPRITE_COMPONENT_INDEX] = chance % 2 == 0 ? new SpriteComponent('hxlogo_png',20,20) : null;
 
             entities[i] = components;
         }

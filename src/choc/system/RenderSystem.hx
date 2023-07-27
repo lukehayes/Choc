@@ -3,6 +3,7 @@ package choc.system;
 import choc.Global;
 import choc.component.Component;
 import choc.component.std.TransformComponent;
+import choc.component.std.SpriteComponent;
 import choc.system.System;
 
 import choc.World;
@@ -32,19 +33,24 @@ class RenderSystem extends System
         for(e in this.entities)
         {
             var tc = cast(e[Global.TRANSFORM_COMPONENT_INDEX], TransformComponent);
+            var sc = cast(e[Global.SPRITE_COMPONENT_INDEX], SpriteComponent);
 
-            if(Std.isOfType(tc, TransformComponent))
+
+            if(Std.isOfType(sc, SpriteComponent))
             {
-
-            this.g.beginFill(tc.color);
-                this.g.drawRect(
-                    tc.x,
-                    tc.y,
-                    tc.w,
-                    tc.h
-                );
-            this.g.endFill();
+                this.g.drawTile(tc.x,tc.y, sc.tile);
+            }else
+            {
+                this.g.beginFill(tc.color);
+                    this.g.drawRect(
+                        tc.x,
+                        tc.y,
+                        tc.w,
+                        tc.h
+                    );
+                this.g.endFill();
             }
+
 
         }
 
