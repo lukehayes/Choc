@@ -1,17 +1,9 @@
 package test;
 
 import choc.World;
-import choc.Global;
 
 import choc.system.RenderSystem;
 import choc.system.MoveSystem;
-
-import choc.component.Component;
-import choc.component.std.TransformComponent;
-
-import choc.Typedefs;
-
-import Random;
 
 class Main extends hxd.App {
 
@@ -44,5 +36,4 @@ class Main extends hxd.App {
         hxd.Res.initEmbed();
         new Main();
     }
-
 }
