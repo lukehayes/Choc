@@ -1,8 +1,7 @@
 package choc;
 
-
 /**
-  Useful helper constnats are defined in this file.
+  Useful helper constants are defined in this file.
  */
 class Global
 {
