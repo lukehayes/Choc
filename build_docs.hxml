@@ -1,0 +1,8 @@
+-cp src
+-lib heaps
+-D doc-gen
+--no-output
+--each
+
+--next
+-xml xml/choc.xml
