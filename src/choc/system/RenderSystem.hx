@@ -6,8 +6,6 @@ import choc.component.std.TransformComponent;
 import choc.component.std.SpriteComponent;
 import choc.system.System;
 
-import choc.World;
-
 typedef Entities = Array<Array<Component>>;
 
 class RenderSystem extends System
@@ -28,8 +26,6 @@ class RenderSystem extends System
 
         this.g.clear();
 
-        var entityCount = Global.ENTITY_COUNT;
-
         for(e in this.entities)
         {
             var tc = cast(e[Global.TRANSFORM_COMPONENT_INDEX], TransformComponent);
@@ -38,7 +34,7 @@ class RenderSystem extends System
 
             if(Std.isOfType(sc, SpriteComponent))
             {
-                this.g.drawTile(tc.x,tc.y, sc.tile);
+                this.g.drawTile(tc.x,tc.y, sc.getTile());
             }else
             {
                 this.g.beginFill(tc.color);
