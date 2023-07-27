@@ -1,12 +1,10 @@
 package choc.system;
 
 import choc.Global;
-import choc.component.Component;
+import choc.Typedefs;
 import choc.component.std.TransformComponent;
 import choc.component.std.SpriteComponent;
 import choc.system.System;
-
-typedef Entities = Array<Array<Component>>;
 
 class RenderSystem extends System
 {
