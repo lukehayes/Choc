@@ -10,7 +10,9 @@ import choc.system.MoveSystem;
 import choc.entity.Entity;
 
 /**
-  This class is the main class that controls the ECS.
+  The World object is the main root into the ECS. Entities and Systems can be
+  added and removed. Currently two default systems are added to the world
+  and they are the RenderSystem and a basic MovementSystem to get started.
 **/
 class World
 {
@@ -40,7 +42,9 @@ class World
     public var scene : h2d.Scene;
 
     /**
-      World should be used as a singleton, so constructor is private.
+    * World constructor.
+    * 
+    * @param scene An instance of h2d.Scene to be used for rendering.
     **/
     public function new(scene: h2d.Scene)
     {
@@ -53,12 +57,10 @@ class World
             new RenderSystem(this.entities, scene)
         );
 
-        // Add default systems.
         this.addSystem(
             "Move",
             new MoveSystem(this.entities)
         );
-
     }
 
     /**
@@ -111,7 +113,7 @@ class World
 
       @param system  Instance of the system to add.
 
-      @param system
+      @return void  
     **/
     public function addSystem(name:String, system:System)
     {
