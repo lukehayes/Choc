@@ -1,8 +1,13 @@
 package choc;
 
-import choc.system.System;
-import choc.entity.Entity;
 import choc.Global;
+import choc.Typedefs;
+
+import choc.system.System;
+import choc.system.RenderSystem;
+import choc.system.MoveSystem;
+
+import choc.entity.Entity;
 
 /**
   This class is the main class that controls the ECS.
@@ -10,19 +15,14 @@ import choc.Global;
 class World
 {
     /**
-      Singleton instance of the World object.
-    **/
-    public static final instance : World = new World();
-
-    /**
       All of systems used inside the world.
     **/
     public var systems:Map<String, System>;
 
     /**
-      All of entites used inside the world.
+      All of entities used inside the world.
     **/
-    public var entities:Array<Array<choc.component.Component>>;
+    public var entities:Entities;
 
     /**
       The total number of systems defined in the world.
@@ -35,12 +35,30 @@ class World
     public var entityCount:Int = 0;
 
     /**
+      The scene being rendered to.
+    **/
+    public var scene : h2d.Scene;
+
+    /**
       World should be used as a singleton, so constructor is private.
     **/
-    private function new()
+    public function new(scene: h2d.Scene)
     {
         this.systems  = new Map<String,System>();
         this.entities = [];
+
+        // Add default systems.
+        this.addSystem(
+            "Render",
+            new RenderSystem(this.entities, scene)
+        );
+
+        // Add default systems.
+        this.addSystem(
+            "Move",
+            new MoveSystem(this.entities)
+        );
+
     }
 
     /**
@@ -83,10 +101,6 @@ class World
     **/
     public function removeEntity(index:Int) : Bool
     {
-        /**
-        * TODO Need to work out a better architecture.
-        * Implement this later when I have done that.
-        */
         return false;
     }
 
@@ -110,9 +124,10 @@ class World
 
       @param entity
     **/
-    public function addEntity(index:Int, entity:Entity)
+    public function addEntity(entity:Entity)
     {
-        // TODO See World.removeEntity().
+        this.entityCount++;
+        this.entities.push(entity);
     }
 }
 

@@ -26,15 +26,8 @@ class RenderSystem extends System
 
         for(e in this.entities)
         {
-            var tc = cast(e[Global.TRANSFORM_COMPONENT_INDEX], TransformComponent);
-            var sc = cast(e[Global.SPRITE_COMPONENT_INDEX], SpriteComponent);
+            var tc = cast(e.getComponent('Transform'), TransformComponent);
 
-
-            if(Std.isOfType(sc, SpriteComponent))
-            {
-                this.g.drawTile(tc.x,tc.y, sc.getTile());
-            }else
-            {
                 this.g.beginFill(tc.color);
                     this.g.drawRect(
                         tc.x,
@@ -43,11 +36,7 @@ class RenderSystem extends System
                         tc.h
                     );
                 this.g.endFill();
-            }
-
-
+                //this.g.drawTile(tc.x,tc.y, sc.getTile());
         }
-
-
     }
 }

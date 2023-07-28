@@ -1,35 +1,38 @@
 package test;
 
 import choc.World;
+import choc.entity.Entity;
 
-import choc.system.RenderSystem;
-import choc.system.MoveSystem;
+import choc.component.std.TransformComponent;
+
+import Random;
+
 
 class Main extends hxd.App {
 
+    var world : World;
+
     override function init() 
     {
-        /**
-        TODO Refactor this into a useable API so that it can be
-             used outsied of this project.
-        */
+        this.world = new World(s2d);
 
-        World.instance.entities = EntityFactory.generateEntities();
+        for(i in 0...10)
+        {
+            var rx = Std.random(400);
+            var ry = Std.random(400);
+            var dx = Random.int(-1,1);
+            var dy = Random.int(-1,1);
 
-        World.instance.addSystem(
-            "Render",
-            new RenderSystem(World.instance.entities, s2d)
-        );
+            var e = new Entity(this.world.entityCount);
+            e.addComponent("Transform", new TransformComponent(rx,ry,10,10,Std.random(100), dx,dy));
 
-        World.instance.addSystem(
-            "Move",
-            new MoveSystem(World.instance.entities)
-        );
+            this.world.addEntity(e);
+        }
     }
 
     override function update(dt:Float) 
     {
-        World.instance.update(dt);
+        this.world.update(dt);
     }
 
     static function main() {

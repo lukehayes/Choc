@@ -23,25 +23,22 @@ class MoveSystem extends System
 
         for(e in this.entities)
         {
-            var tc = cast(e[Global.TRANSFORM_COMPONENT_INDEX], TransformComponent);
+            var tc = cast(e.getComponent('Transform'), TransformComponent);
 
-            if(Std.isOfType(tc, TransformComponent))
+            tc.x += tc.dx + tc.speed * dt;
+            tc.y += tc.dy + tc.speed * dt;
+
+            // TODO Create a proper collision system solution.
+            //
+            // Edge of screen check.
+            if(tc.x < 2 || tc.x > 580)
             {
-                tc.x += tc.dx + tc.speed * dt;
-                tc.y += tc.dy + tc.speed * dt;
+                tc.dx = -tc.dx;
+            }
 
-                // TODO Create a proper collision system solution.
-                //
-                // Edge of screen check.
-                if(tc.x < 2 || tc.x > 580)
-                {
-                    tc.dx = -tc.dx;
-                }
-
-                if(tc.y < 2 || tc.y > 580)
-                {
-                    tc.dy = -tc.dy;
-                }
+            if(tc.y < 2 || tc.y > 580)
+            {
+                tc.dy = -tc.dy;
             }
 
         }

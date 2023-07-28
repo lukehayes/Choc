@@ -5,5 +5,8 @@ package choc;
 */
 
 import choc.component.Component;
+import choc.entity.Entity;
 
-typedef Entities = Array<Array<Component>>;
+//typedef Entities = Array<Array<Component>>;
+//
+typedef Entities = Array<Entity>;
