@@ -22,11 +22,6 @@ class World
     public var systems:Map<String, System>;
 
     /**
-      All of entities used inside the world.
-    **/
-    public var entities:Entities;
-
-    /**
       The total number of systems defined in the world.
     **/
     public var systemCount:Int = 0;
@@ -49,17 +44,16 @@ class World
     public function new(scene: h2d.Scene)
     {
         this.systems  = new Map<String,System>();
-        this.entities = [];
 
         // Add default systems.
         this.addSystem(
             "Render",
-            new RenderSystem(this.entities, scene)
+            new RenderSystem(scene)
         );
 
         this.addSystem(
             "Move",
-            new MoveSystem(this.entities)
+            new MoveSystem()
         );
     }
 
@@ -103,7 +97,7 @@ class World
     **/
     public function removeEntity(entity:Entity) : Bool
     {
-        return this.entities.remove(entity);
+        return Global.entities.remove(entity);
     }
 
     /**
@@ -129,7 +123,7 @@ class World
     public function addEntity(entity:Entity)
     {
         this.entityCount++;
-        this.entities.push(entity);
+        Global.entities.push(entity);
     }
 }
 

@@ -1,27 +1,19 @@
 package choc.system;
 
 import choc.Global;
-import choc.component.Component;
 import choc.component.std.TransformComponent;
 import choc.system.System;
 
-import choc.World;
-import choc.Typedefs;
-
 class MoveSystem extends System
 {
-    private var entities = null;
-
-    public function new(ents : Entities)
+    public function new()
     {
         super();
-        this.entities = ents;
     }
 
     public function update(dt: Float)
     {
-
-        for(e in this.entities)
+        for(e in Global.entities)
         {
             var tc = cast(e.getComponent('Transform'), TransformComponent);
 
@@ -40,9 +32,6 @@ class MoveSystem extends System
             {
                 tc.dy = -tc.dy;
             }
-
         }
-
-
     }
 }

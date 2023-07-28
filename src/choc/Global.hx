@@ -1,5 +1,7 @@
 package choc;
 
+import choc.Typedefs;
+
 /**
   Useful helper constants are defined in this file.
  */
@@ -12,8 +14,11 @@ class Global
         SPRITE_COMPONENT_INDEX = 1;
 
     public static final
-        ENTITY_COUNT = 3;
+        ENTITY_COUNT = 250;
 
     public static final
         COMPONENT_COUNT = 2;
+
+    public static var
+        entities : Entities = [];
 }

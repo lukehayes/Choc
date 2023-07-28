@@ -1,22 +1,16 @@
 package choc.system;
 
-import choc.Global;
-import choc.Typedefs;
 import choc.component.std.TransformComponent;
-import choc.component.std.SpriteComponent;
 import choc.system.System;
 
 class RenderSystem extends System
 {
     private var g : h2d.Graphics;
 
-    private var entities = null;
-
-    public function new(ents : Entities, scene: h2d.Scene )
+    public function new(scene: h2d.Scene )
     {
         super();
         this.g = new h2d.Graphics(scene);
-        this.entities = ents;
     }
 
     public function update(dt: Float)
@@ -24,7 +18,7 @@ class RenderSystem extends System
 
         this.g.clear();
 
-        for(e in this.entities)
+        for(e in Global.entities)
         {
             var tc = cast(e.getComponent('Transform'), TransformComponent);
 
