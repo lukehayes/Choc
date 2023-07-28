@@ -99,9 +99,9 @@ class World
 
       @return Bool
     **/
-    public function removeEntity(index:Int) : Bool
+    public function removeEntity(entity:Entity) : Bool
     {
-        return false;
+        return this.entities.remove(entity);
     }
 
     /**
