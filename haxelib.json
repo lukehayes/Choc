@@ -4,10 +4,10 @@
   "license": "MIT",
   "tags": ["ECS", "Entity Component System", "Haxe"],
   "description": "A small ECS library for use with the Heaps.io framework",
-  "version": "0.1.0",
+  "version": "0.0.2-alpha",
   "classPath": "src/",
-  "releasenote": "Systems can now filter entities based on required components",
-  "contributors": ["Luke"],
+  "releasenote": "Complete rewrite. Reverted project to alpha status.",
+  "contributors": ["LDH"],
   "dependencies": {
     "random": ""
   }
