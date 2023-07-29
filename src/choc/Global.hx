@@ -1,11 +1,12 @@
 package choc;
 
+import choc.Typedefs;
+
 /**
- * Useful configuration constants are stored in here.
+  Useful helper constants are defined in this file.
  */
-final class Global
+class Global
 {
-    /** ECS CONSTANTS ------------------------------------------------------ */
     public static final
         TRANSFORM_COMPONENT_INDEX = 0;
 
@@ -13,5 +14,11 @@ final class Global
         ENTITY_COUNT              = 10;
 
     public static final
-        COMPONENT_COUNT           = 4;
+        SPRITE_COMPONENT_INDEX = 1;
+
+    public static final
+        ENTITY_COUNT = 250;
+
+    public static var
+        entities : Entities = [];
 }

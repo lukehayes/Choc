@@ -1,27 +1,25 @@
 package choc;
 
+import choc.Global;
+import choc.Typedefs;
+
 import choc.system.System;
+import choc.system.RenderSystem;
+import choc.system.MoveSystem;
+
 import choc.entity.Entity;
 
 /**
-  This class is the main class that controls the ECS.
+  The World object is the main root into the ECS. Entities and Systems can be
+  added and removed. Currently two default systems are added to the world
+  and they are the RenderSystem and a basic MovementSystem to get started.
 **/
 class World
 {
     /**
-      Singleton instance of the World object.
-    **/
-    public static final instance : World = new World();
-
-    /**
       All of systems used inside the world.
     **/
     public var systems:Map<String, System>;
-
-    /**
-      All of entites used inside the world.
-    **/
-    public var entities:Map<Int, Entity>;
 
     /**
       The total number of systems defined in the world.
@@ -34,12 +32,29 @@ class World
     public var entityCount:Int = 0;
 
     /**
-      World should be used as a singleton, so constructor is private.
+      The scene being rendered to.
     **/
-    private function new()
+    public var scene : h2d.Scene;
+
+    /**
+    * World constructor.
+    * 
+    * @param scene An instance of h2d.Scene to be used for rendering.
+    **/
+    public function new(scene: h2d.Scene)
     {
         this.systems  = new Map<String,System>();
-        this.entities = new Map<Int,Entity>();
+
+        // Add default systems.
+        this.addSystem(
+            "Render",
+            new RenderSystem(scene)
+        );
+
+        this.addSystem(
+            "Move",
+            new MoveSystem()
+        );
     }
 
     /**
@@ -64,7 +79,13 @@ class World
     **/
     public function removeSystem(name:String) : Bool
     {
-        return this.systems.remove(name);
+        if(this.systems.exists(name))
+        {
+            this.systemCount--;
+            return this.systems.remove(name);
+        }else {
+            return false;
+        }
     }
 
     /**
@@ -74,19 +95,24 @@ class World
 
       @return Bool
     **/
-    public function removeEntity(index:Int) : Bool
+    public function removeEntity(entity:Entity) : Bool
     {
-        return this.entities.remove(index);
+        return Global.entities.remove(entity);
     }
 
     /**
       Add a system to the world.
 
-      @param system
+      @param name    The name of the system.
+
+      @param system  Instance of the system to add.
+
+      @return void  
     **/
-    public function addSystem(system:System)
+    public function addSystem(name:String, system:System)
     {
-        this.systems[system.name] = system;
+        this.systems[name] = system;
+        this.systemCount++;
     }
 
     /**
@@ -94,9 +120,10 @@ class World
 
       @param entity
     **/
-    public function addEntity(index:Int, entity:Entity)
+    public function addEntity(entity:Entity)
     {
-        this.entities[index] = entity;
+        this.entityCount++;
+        Global.entities.push(entity);
     }
 }
 

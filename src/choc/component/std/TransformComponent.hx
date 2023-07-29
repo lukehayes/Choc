@@ -13,29 +13,43 @@ class TransformComponent extends Component
     public var h      : Float;
     public var dx     : Float;
     public var dy     : Float;
-    public var speed : Float;
-    public var color : Int;
+    public var speed  : Float;
+    public var color  : Int;
 
 
     public function new(
-            x:Float = 1,
-            y:Float = 1,
+            x:Float  = 1,
+            y:Float  = 1,
+            w:Float  = 10,
+            h:Float  = 10,
+            speed : Float = 100,
             dx:Float = 1,
             dy:Float = 1,
-            w:Float = 10,
-            h:Float = 10,
-            speed : Float = 100,
-            color : Int = 0xFF00FFFF
+            color : Int = 0xFF00FF
             )
     {
-        super("Transform");
+        super();
+        this.name = "Transform";
 
-        this.x = x;
-        this.y = y;
+        this.x  = x;
+        this.y  = y;
+        this.w  = w;
+        this.h  = h;
+        this.speed = speed;
         this.dx = dx;
         this.dy = dy;
-        this.w = w;
-        this.h = h;
-        this.speed = speed;
+        this.color = color;
     }
+
+    override public function toString()
+    {
+        var s = "Transform Component { ";
+        s+= this.x + ",";
+        s+= this.y + ",";
+        s+= this.w + ",";
+        s+= this.h + " }";
+
+        return s;
+    }
+
 }

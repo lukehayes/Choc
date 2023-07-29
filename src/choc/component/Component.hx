@@ -9,12 +9,10 @@ class Component
 
     /**
       Constructor.
-
-      @param name    The name of the component
     **/
-    public function new(name)
+    public function new()
     {
-        this.name = name;
+        this.name = "Component";
     }
 
     /**
