@@ -38,12 +38,11 @@ class World
 
     /**
     * World constructor.
-    * 
-    * @param scene An instance of h2d.Scene to be used for rendering.
     **/
-    public function new(scene: h2d.Scene)
+    public function new()
     {
         this.systems  = new Map<String,System>();
+    }
 
         // Add default systems.
         this.addSystem(
@@ -68,6 +67,16 @@ class World
         {
             system.update(dt);
         }
+    }
+
+    /**
+      Set the current scene to use.
+
+      @param scene The scene to set.
+    **/
+    public function setScene(scene : h2d.Scene)
+    {
+        this.scene = scene;
     }
 
     /**
