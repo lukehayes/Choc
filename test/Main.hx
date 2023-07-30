@@ -21,26 +21,9 @@ class Main extends hxd.App {
 
         this.world.setScene(s2d);
         this.world.setDefaultSystems();
-
-        for(i in 0...Global.ENTITY_COUNT)
-        {
-            var rx = Std.random(400);
-            var ry = Std.random(400);
-            var dx = Random.int(-1,1);
-            var dy = Random.int(-1,1);
-
-            var chance = Random.int(0,100);
-
-            var e = new Entity(this.world.entityCount);
-            e.addComponent("Transform", new TransformComponent(rx,ry,10,10,Std.random(100), dx,dy));
-
-            if(chance % 2 == 0)
-            {
-                e.addComponent("Sprite", new SpriteComponent('debug.png'));
-            }
-
-            this.world.addEntity(e);
-        }
+        
+        // Generate some test entities.
+        EntityFactory.generate(Global.ENTITY_COUNT, this.world);
     }
 
     override function update(dt:Float) 
