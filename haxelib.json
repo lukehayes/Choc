@@ -4,7 +4,7 @@
   "license": "MIT",
   "tags": ["ECS", "Entity Component System", "Haxe"],
   "description": "A small ECS library for use with the Heaps.io framework",
-  "version": "0.0.2-alpha",
+  "version": "0.0.21-alpha",
   "classPath": "src/",
   "releasenote": "Complete rewrite. Reverted project to alpha status.",
   "contributors": ["LDH"],
