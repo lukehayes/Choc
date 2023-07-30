@@ -1,5 +1,6 @@
 package choc.system;
 
+import choc.World;
 import choc.component.std.TransformComponent;
 import choc.component.std.SpriteComponent;
 import choc.system.System;
@@ -8,9 +9,9 @@ class RenderSystem extends System
 {
     private var g : h2d.Graphics;
 
-    public function new(scene: h2d.Scene )
+    public function new(world :World, scene: h2d.Scene )
     {
-        super();
+        super(world);
         this.g = new h2d.Graphics(scene);
     }
 

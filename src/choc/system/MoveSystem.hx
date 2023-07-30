@@ -1,14 +1,15 @@
 package choc.system;
 
 import choc.Global;
+import choc.World;
 import choc.component.std.TransformComponent;
 import choc.system.System;
 
 class MoveSystem extends System
 {
-    public function new()
+    public function new(world : World)
     {
-        super();
+        super(world);
     }
 
     public function update(dt: Float)
@@ -26,6 +27,8 @@ class MoveSystem extends System
             if(tc.x < 2 || tc.x > 580)
             {
                 tc.dx = -tc.dx;
+                
+                this.world.removeEntity(e);
             }
 
             if(tc.y < 2 || tc.y > 580)

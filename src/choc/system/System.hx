@@ -1,5 +1,7 @@
 package choc.system;
 
+import choc.World;
+
 /**
   Base class for all systems. 
 
@@ -7,11 +9,14 @@ package choc.system;
 **/
 abstract class System
 {
+    var world : World = null;
+
     /**
       Constructor.
     **/
-    public function new()
+    public function new(world : World)
     {
+        this.world = world;
     }
 
     /**

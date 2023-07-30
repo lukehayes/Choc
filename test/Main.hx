@@ -17,7 +17,10 @@ class Main extends hxd.App {
 
     override function init() 
     {
-        this.world = new World(s2d);
+        this.world = new World();
+
+        this.world.setScene(s2d);
+        this.world.setDefaultSystems();
 
         for(i in 0...Global.ENTITY_COUNT)
         {
@@ -42,7 +45,6 @@ class Main extends hxd.App {
 
     override function update(dt:Float) 
     {
-        trace(Global.entities.length);
         this.world.update(dt);
     }
 

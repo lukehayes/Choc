@@ -44,16 +44,29 @@ class World
         this.systems  = new Map<String,System>();
     }
 
+    /**
+      Set the default systems that should be available from initialization.
+    **/
+    public function setDefaultSystems()
+    {
         // Add default systems.
         this.addSystem(
             "Render",
-            new RenderSystem(scene)
+            new RenderSystem(this, scene)
         );
+        
+        #if debug
+            trace("Render System Set");
+        #end
 
         this.addSystem(
             "Move",
-            new MoveSystem()
+            new MoveSystem(this)
         );
+
+        #if debug
+            trace("Move System Set");
+        #end
     }
 
     /**
