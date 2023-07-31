@@ -9,10 +9,13 @@ class RenderSystem extends System
 {
     private var g : h2d.Graphics;
 
+    public var scene : h2d.Scene;
+
     public function new(world :World, scene: h2d.Scene )
     {
         super(world);
         this.g = new h2d.Graphics(scene);
+        this.scene = scene;
     }
 
     public function update(dt: Float)
