@@ -9,21 +9,25 @@ class SpriteComponent extends Component
 {
     private var tile:h2d.Tile;
 
+    public var scaleFactor : Int;
+
     /**
     * Create a new SpriteComponent instance.
     *
     * @param ?path The full path to where an image is stored.
-    * @param width The width of the sprite component. Default: 16.
-    * @param height The height of the sprite component. Default: 16.
+    * @param tileSize The size of the tile on both the X and Y axis.
+    * @param scaleFactor The scale multiplier of the tile - defaults to 1.
     */
-    public function new(?path:String, width:Int = 16, height: Int = 16)
+    public function new(?path:String, tileSize: Int = 1, scaleFactor:Int = 1)
     {
         super();
 
         // If path is null, create a texture squre, else use the image.
         this.tile = !Std.isOfType(path, null) ?
                     hxd.Res.load(path).toTile() :
-                    h2d.Tile.fromColor(0x00FFFF, width, height);
+                    h2d.Tile.fromColor(0x00FFFF, tileSize, tileSize);
+        
+        this.scaleFactor = scaleFactor;
     }
 
     /**

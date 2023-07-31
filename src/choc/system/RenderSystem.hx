@@ -27,9 +27,14 @@ class RenderSystem extends System
         {
             var tc = cast(e.getComponent('Transform'), TransformComponent);
             var sc = e.hasComponent('Sprite') ? cast(e.getComponent('Sprite'), SpriteComponent) : null;
+            
+            // Scales the sprites to the components scale factor.
+            this.g.scaleX = sc.scaleFactor;
+            this.g.scaleY = sc.scaleFactor;
 
             if(sc != null)
             {
+
                 this.g.drawTile(tc.x,tc.y, sc.getTile());
             }else
             {
