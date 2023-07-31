@@ -25,18 +25,21 @@ class EntityFactory
     {
         for(i in 0...count - 1)
         {
-            var rx  = Random.int(0,400);
-            var ry  = Random.int(0,400);
-            var rw  = Random.int(5,40);
-            var rh  = Random.int(5,40);
+            var rx   = Random.int(0,400);
+            var ry   = Random.int(0,400);
+            var rsz  = Random.int(5,40);
             var rsp  = Random.int(1,10);
-            var rdx = Random.int(-1,1);
-            var rdy = Random.int(-1,1);
+            var rdx  = Random.int(-1,1);
+            var rdy  = Random.int(-1,1);
 
             var e = new TestEntity(i);
 
             e.addComponent("Transform",
-                new TransformComponent(rx, ry, rw,rw, rsp, rdx, rdy)
+                new TransformComponent(rx, ry, rsz, rsz, rsp, rdx, rdy)
+            );
+
+            e.addComponent("Sprite",
+                new SpriteComponent('debug.png',16, rsp)
             );
 
             world.addEntity(e);
