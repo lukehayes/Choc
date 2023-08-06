@@ -37,10 +37,15 @@ class EntityFactory
             e.addComponent("Transform",
                 new TransformComponent(rx, ry, rsz, rsz, rsp, rdx, rdy)
             );
+            
+            var chance = Std.random(10);
 
-            e.addComponent("Sprite",
-                new SpriteComponent('debug.png',16, rsp)
-            );
+            if(chance % 2 == 0)
+           {
+                e.addComponent("Sprite",
+                    new SpriteComponent('debug.png')
+                );
+           }
 
             world.addEntity(e);
         }
