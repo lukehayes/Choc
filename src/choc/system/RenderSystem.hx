@@ -20,21 +20,28 @@ class RenderSystem extends System
 
     public function update(dt: Float)
     {
-
         this.g.clear();
 
         for(e in Global.entities)
         {
             var tc = cast(e.getComponent('Transform'), TransformComponent);
             var sc = e.hasComponent('Sprite') ? cast(e.getComponent('Sprite'), SpriteComponent) : null;
+            var tileSize = 16 * 10;
 
             if(sc != null)
             {
                 // TODO Need to look to see if there is a better way to
                 // scale images and then have them rendered as a tile.
-                sc.bitmap.x = tc.x;
-                sc.bitmap.y = tc.y;
-                this.scene.add(sc.bitmap);
+                
+                var tile = sc.tile;
+                
+                this.g.beginTileFill(0, 0, tileSize, tileSize, tile);
+                    this.g.drawTile(
+                        tc.x,
+                        tc.y,
+                        tile
+                    );
+                this.g.endFill();
             }else
             {
                 this.g.beginFill(tc.color);

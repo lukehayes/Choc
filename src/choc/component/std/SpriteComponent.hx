@@ -7,11 +7,14 @@ import choc.component.Component;
 **/
 class SpriteComponent extends Component
 {
-    private var tile:h2d.Tile;
+    public var tile:h2d.Tile;
 
     public var scaleFactor : Int;
 
     public var bitmap : h2d.Bitmap;
+
+    public var image : hxd.res.Image;
+
 
     /**
     * Create a new SpriteComponent instance.
@@ -20,7 +23,7 @@ class SpriteComponent extends Component
     * @param tileSize The size of the tile on both the X and Y axis.
     * @param scaleFactor The scale multiplier of the tile - defaults to 1.
     */
-    public function new(?path:String, tileSize: Int = 16, scaleFactor:Int = 1)
+    public function new(?path:String, tileSize: Int = 16, scaleFactor:Int = 10)
     {
         super();
 
@@ -28,13 +31,17 @@ class SpriteComponent extends Component
         this.tile = !Std.isOfType(path, null) ?
                     hxd.Res.load(path).toTile() :
                     h2d.Tile.fromColor(0x00FFFF, tileSize, tileSize);
-        
+
+        //this.image = !Std.isOfType(path, null) ?
+                    //hxd.Res.load(path).toImage() : null;
+
         this.scaleFactor = scaleFactor;
 
-        this.bitmap = new h2d.Bitmap(this.tile);
+        //this.bitmap = this.tile.toBitmap();
+        //this.bitmap.scaleX = 16 * 10;
+        //this.bitmap.scaleY = 16 * 10;
 
-        this.bitmap.scaleX = this.scaleFactor;
-        this.bitmap.scaleY = this.scaleFactor;
+        //this.tile = this.image.toTile();
     }
 
     /**
