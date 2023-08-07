@@ -7,14 +7,12 @@ import choc.component.Component;
 **/
 class SpriteComponent extends Component
 {
-    public var tile:h2d.Tile;
-
+    public var tile        : h2d.Tile;
+    public var tileSize    : Int;
     public var scaleFactor : Int;
-
-    public var bitmap : h2d.Bitmap;
-
-    public var image : hxd.res.Image;
-
+    public var tileScale   : Int;
+    public var bitmap      : h2d.Bitmap;
+    public var image       : hxd.res.Image;
 
     /**
     * Create a new SpriteComponent instance.
@@ -27,15 +25,18 @@ class SpriteComponent extends Component
     {
         super();
 
+        this.tileSize = tileSize;
+        this.scaleFactor = scaleFactor;
+        this.tileScale = this.tileSize * this.tileScale * 100;
+
         // If path is null, create a texture squre, else use the image.
         this.tile = !Std.isOfType(path, null) ?
                     hxd.Res.load(path).toTile() :
-                    h2d.Tile.fromColor(0x00FFFF, tileSize, tileSize);
+                    h2d.Tile.fromColor(0x00FFFF, this.tileSize, this.tileSize);
 
-        //this.image = !Std.isOfType(path, null) ?
-                    //hxd.Res.load(path).toImage() : null;
+        this.image = !Std.isOfType(path, null) ?
+                    hxd.Res.load(path).toImage() : null;
 
-        this.scaleFactor = scaleFactor;
 
         //this.bitmap = this.tile.toBitmap();
         //this.bitmap.scaleX = 16 * 10;
