@@ -1,0 +1,6 @@
+-lib heaps
+-lib random
+-lib hlsdl
+-hl out/main.c
+-main "test/Main.hx"
+-cp src
