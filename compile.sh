@@ -10,4 +10,4 @@ gcc main.c -o main \
   /usr/local/lib/openal.hdll \
   /usr/local/lib/ui.hdll \
   /usr/local/lib/uv.hdll \
-  -lhl -lSDL2 -lm -lopenal -lGL
+  -lhl -lSDL2 -lm -lopenal -lGL -luv
